@@ -3,581 +3,1132 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stories — Dra. Sabrina Carvalho</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Dra. Yasmim · Paleta Mkt</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
 <style>
-  :root {
-    --cream: #FAF8F4;
-    --warm: #F5F1EB;
-    --ink: #1C1917;
-    --ink-l: #44403C;
-    --ink-m: #78716C;
-    --gold: #B5924C;
-    --gold-l: #D4B483;
-    --gold-p: #EFE4CC;
-    --sage: #6B7A5E;
-    --rose: #C4897A;
-    --line: #E5DDD3;
-    --card: #FFFFFF;
-    --shadow: 0 2px 20px rgba(28,25,23,0.07);
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--cream);
-    color: var(--ink);
-    font-size: 15px;
-    line-height: 1.7;
-  }
+:root {
+  --bg: #F4F1EC;
+  --surface: #FFFFFF;
+  --surface2: #EDE9E2;
+  --surface3: #E5E0D8;
+  --border: rgba(0,0,0,0.07);
+  --border2: rgba(0,0,0,0.12);
+  --text: #1A1916;
+  --text2: #6B6860;
+  --text3: #A09D97;
+  --green: #1D9E75;
+  --green-l: #D8F2EA;
+  --green-d: #064D38;
+  --amber: #BA7517;
+  --amber-l: #FBF0D8;
+  --amber-d: #5C3A09;
+  --blue: #185FA5;
+  --blue-l: #DFF0FB;
+  --blue-d: #092F54;
+  --purple: #534AB7;
+  --purple-l: #ECEAFB;
+  --purple-d: #1E1A5C;
+  --red: #A32D2D;
+  --red-l: #FBEBEB;
+  --red-d: #5C1414;
+  --r: 14px;
+  --r-sm: 8px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; font-size: 14px; line-height: 1.6; }
 
-  /* HEADER */
-  header {
-    background: var(--ink);
-    color: var(--cream);
-    padding: 56px 32px 48px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 70% 50% at 50% 120%, rgba(181,146,76,0.2) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .eyebrow {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gold-l);
-    margin-bottom: 14px;
-    opacity: 0;
-    animation: up 0.6s 0.1s ease forwards;
-  }
-  header h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: clamp(2rem, 5vw, 3.2rem);
-    line-height: 1.15;
-    margin-bottom: 10px;
-    opacity: 0;
-    animation: up 0.6s 0.2s ease forwards;
-  }
-  header h1 em { font-style: italic; color: var(--gold-l); }
-  .h-divider {
-    width: 36px; height: 1px;
-    background: var(--gold);
-    margin: 20px auto 16px;
-    opacity: 0;
-    animation: up 0.6s 0.28s ease forwards;
-  }
-  .h-sub {
-    font-size: 13px;
-    color: rgba(250,248,244,0.5);
-    font-weight: 300;
-    opacity: 0;
-    animation: up 0.6s 0.35s ease forwards;
-  }
+/* ══ SPLASH ══ */
+#splash {
+  position:fixed;inset:0;background:#0D0C09;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  z-index:9999;overflow:hidden;
+  transition:opacity 1s ease,visibility 1s ease;
+}
+#splash.hide{opacity:0;visibility:hidden;pointer-events:none}
 
-  /* MAIN */
-  main {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 48px 24px 80px;
-  }
+/* orbs */
+.s-orb{position:absolute;border-radius:50%;filter:blur(80px);animation:orbf 6s ease-in-out infinite alternate}
+.s-orb-1{width:500px;height:500px;background:radial-gradient(circle,rgba(29,158,117,.22) 0%,transparent 70%);top:-160px;left:-160px;animation-delay:0s}
+.s-orb-2{width:400px;height:400px;background:radial-gradient(circle,rgba(83,74,183,.18) 0%,transparent 70%);bottom:-120px;right:-120px;animation-delay:1.5s}
+.s-orb-3{width:280px;height:280px;background:radial-gradient(circle,rgba(186,117,23,.14) 0%,transparent 70%);top:40%;left:55%;animation-delay:.8s}
+.s-orb-4{width:200px;height:200px;background:radial-gradient(circle,rgba(24,95,165,.12) 0%,transparent 70%);top:60%;left:10%;animation-delay:2s}
+@keyframes orbf{from{transform:scale(1) translate(0,0)}to{transform:scale(1.25) translate(20px,-20px)}}
 
-  /* SECTION LABEL */
-  .s-label {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 6px;
-  }
-  .s-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.9rem;
-    font-weight: 400;
-    color: var(--ink);
-    margin-bottom: 6px;
-    line-height: 1.2;
-  }
-  .s-title em { font-style: italic; color: var(--gold); }
-  .s-desc {
-    font-size: 14px;
-    color: var(--ink-m);
-    margin-bottom: 32px;
-    max-width: 580px;
-    line-height: 1.75;
-  }
+/* grade de pontos de fundo */
+.s-dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1px);background-size:32px 32px;animation:dotFade 2s ease forwards}
+@keyframes dotFade{from{opacity:0}to{opacity:1}}
 
-  /* WEEK GRID */
-  .week-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
-    margin-bottom: 16px;
-  }
-  .day-card {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    padding: 18px 16px;
-    box-shadow: var(--shadow);
-    position: relative;
-    overflow: hidden;
-  }
-  .day-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--gold);
-    opacity: 0.5;
-  }
-  .day-name {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 6px;
-  }
-  .day-theme {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 8px;
-    line-height: 1.25;
-  }
-  .day-focus {
-    font-size: 12px;
-    color: var(--ink-m);
-    font-style: italic;
-    line-height: 1.55;
-    margin-bottom: 12px;
-  }
-  .day-stories {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-  .day-story-item {
-    font-size: 12px;
-    color: var(--ink-l);
-    display: flex;
-    align-items: flex-start;
-    gap: 7px;
-    line-height: 1.5;
-  }
-  .day-story-item::before {
-    content: '·';
-    color: var(--gold);
-    font-size: 14px;
-    flex-shrink: 0;
-    margin-top: -1px;
-  }
+/* anel giratório */
+.s-ring{position:absolute;width:420px;height:420px;border-radius:50%;border:1px solid rgba(159,225,203,.06);animation:ringRotate 20s linear infinite}
+.s-ring-2{position:absolute;width:600px;height:600px;border-radius:50%;border:1px dashed rgba(159,225,203,.03);animation:ringRotate 35s linear infinite reverse}
+.s-ring-3{position:absolute;width:260px;height:260px;border-radius:50%;border:1px solid rgba(83,74,183,.08);animation:ringRotate 15s linear infinite}
+@keyframes ringRotate{to{transform:rotate(360deg)}}
 
-  /* JULIA BADGE */
-  .julia-band {
-    background: var(--warm);
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    padding: 14px 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 52px;
-  }
-  .julia-band .icon { font-size: 18px; flex-shrink: 0; }
-  .julia-band p {
-    font-size: 13px;
-    color: var(--ink-m);
-    line-height: 1.6;
-  }
-  .julia-band strong { color: var(--ink); }
+/* ícones orbitais no anel */
+.s-orbit-icon{
+  position:absolute;width:44px;height:44px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:20px;
+  animation:orbitSpin 20s linear infinite;
+  transform-origin:210px 210px; /* metade do ring = 420/2 */
+}
+.soi-1{background:rgba(29,158,117,.2);color:#9FE1CB;border:1px solid rgba(29,158,117,.3);animation-delay:0s}
+.soi-2{background:rgba(83,74,183,.2);color:#AFA9EC;border:1px solid rgba(83,74,183,.3);animation-delay:-5s}
+.soi-3{background:rgba(186,117,23,.2);color:#FAC775;border:1px solid rgba(186,117,23,.3);animation-delay:-10s}
+.soi-4{background:rgba(24,95,165,.2);color:#85B7EB;border:1px solid rgba(24,95,165,.3);animation-delay:-15s}
+@keyframes orbitSpin{to{transform:rotate(360deg) translateX(210px) rotate(-360deg)}}
 
-  /* DIVIDER */
-  .divider {
-    border: none;
-    border-top: 1px solid var(--line);
-    margin: 0 0 48px;
-  }
+/* ícones flutuando livres */
+.s-fi{position:absolute;animation:idrift linear infinite}
+@keyframes idrift{0%{transform:translateY(0) rotate(0deg) scale(.8);opacity:0}10%{opacity:1;transform:translateY(-10px) scale(1)}90%{opacity:.6}100%{transform:translateY(-160px) rotate(25deg) scale(.6);opacity:0}}
 
-  /* WEEKEND SECTION */
-  .fds-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    margin-bottom: 28px;
-  }
-  .fds-badge {
-    flex-shrink: 0;
-    background: var(--ink);
-    color: var(--gold-l);
-    border-radius: 10px;
-    padding: 14px 18px;
-    text-align: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
-    font-weight: 400;
-    line-height: 1.3;
-  }
-  .fds-badge span {
-    display: block;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(212,180,131,0.6);
-    margin-bottom: 4px;
-  }
+/* centro */
+.s-center{position:relative;z-index:2;text-align:center;max-width:480px}
 
-  /* NOTICE BOX */
-  .notice {
-    background: var(--ink);
-    color: var(--cream);
-    border-radius: 10px;
-    padding: 22px 26px;
-    display: flex;
-    gap: 16px;
-    margin-bottom: 28px;
-  }
-  .notice .ni { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
-  .notice p { font-size: 13.5px; color: rgba(250,248,244,0.78); line-height: 1.75; }
-  .notice strong { color: var(--gold-l); }
+/* marca */
+.s-mark{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(159,225,203,.08);border:1px solid rgba(159,225,203,.18);
+  border-radius:30px;padding:7px 20px;margin-bottom:24px;
+  opacity:0;transform:translateY(10px);animation:sup .7s ease .3s forwards;
+}
+.s-mark i{color:#9FE1CB;font-size:15px;animation:iconPulse 2s ease-in-out infinite}
+.s-mark span{font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase}
 
-  /* DAY BLOCKS */
-  .fds-day {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 16px;
-    box-shadow: var(--shadow);
-  }
-  .fds-day-header {
-    display: flex;
-    align-items: center;
-    gap: 0;
-    cursor: pointer;
-    padding: 20px 24px;
-    border-bottom: 1px solid transparent;
-    transition: background 0.2s;
-    user-select: none;
-  }
-  .fds-day-header:hover { background: var(--warm); }
-  .fds-day.open .fds-day-header { border-bottom-color: var(--line); }
-  .fds-day-name {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-right: 14px;
-    flex-shrink: 0;
-  }
-  .fds-day-theme {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--ink);
-    flex: 1;
-  }
-  .fds-day-focus-inline {
-    font-size: 12px;
-    color: var(--ink-m);
-    font-style: italic;
-    margin-left: 14px;
-    flex-shrink: 0;
-  }
-  .fds-toggle {
-    font-size: 18px;
-    color: var(--ink-m);
-    margin-left: 16px;
-    flex-shrink: 0;
-    transition: transform 0.25s;
-  }
-  .fds-day.open .fds-toggle { transform: rotate(90deg); }
-  .fds-day-body {
-    display: none;
-    padding: 20px 24px 24px;
-  }
-  .fds-day.open .fds-day-body { display: block; animation: fadeIn 0.25s ease; }
+.s-logo{
+  font-family:'DM Serif Display',serif;font-size:52px;color:#fff;
+  letter-spacing:-.04em;line-height:1.05;
+  opacity:0;transform:translateY(14px);animation:sup .8s ease .5s forwards;
+}
+.s-logo em{color:#9FE1CB;font-style:normal}
 
-  .orient-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .orient-list li {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-    font-size: 14px;
-    color: var(--ink-l);
-    line-height: 1.65;
-  }
-  .orient-list li .oi { font-size: 15px; flex-shrink: 0; margin-top: 2px; }
-  .orient-list li strong { color: var(--ink); }
+.s-sub{
+  font-size:11px;color:rgba(255,255,255,.22);letter-spacing:.16em;
+  text-transform:uppercase;margin-top:12px;
+  opacity:0;animation:sup .6s ease .8s forwards;
+}
 
-  .caption-example {
-    margin-top: 10px;
-    margin-left: 27px;
-    background: var(--warm);
-    border-left: 2px solid var(--gold);
-    border-radius: 0 6px 6px 0;
-    padding: 10px 14px;
-    font-size: 13px;
-    color: var(--ink-l);
-    font-style: italic;
-    line-height: 1.65;
-  }
+/* ícones de especialidade */
+.s-specs{display:flex;gap:20px;margin-top:32px;justify-content:center;opacity:0;animation:sup .7s ease 1s forwards}
+.s-spec{display:flex;flex-direction:column;align-items:center;gap:8px}
+.s-spec-ico{
+  width:52px;height:52px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;font-size:24px;
+  border:1px solid rgba(255,255,255,.08);
+  animation:specPulse 3s ease-in-out infinite;
+  transition:transform .3s;
+}
+.s-spec-ico:hover{transform:scale(1.12)}
+.ss-g{background:rgba(29,158,117,.15);color:#9FE1CB;animation-delay:0s}
+.ss-p{background:rgba(83,74,183,.15);color:#AFA9EC;animation-delay:.6s}
+.ss-a{background:rgba(186,117,23,.15);color:#FAC775;animation-delay:1.2s}
+.ss-b{background:rgba(24,95,165,.15);color:#85B7EB;animation-delay:1.8s}
+.ss-r{background:rgba(163,45,45,.15);color:#F09595;animation-delay:2.4s}
+@keyframes specPulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 transparent}50%{transform:scale(1.06);box-shadow:0 0 20px rgba(159,225,203,.08)}}
+.s-spec-lbl{font-size:9px;color:rgba(255,255,255,.2);letter-spacing:.08em;text-transform:uppercase}
 
-  .fds-rule {
-    margin-top: 16px;
-    padding: 14px 18px;
-    background: #FDF4F2;
-    border: 1px solid #E8CFC9;
-    border-radius: 8px;
-    font-size: 13px;
-    color: #7A4A40;
-    line-height: 1.7;
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-  }
-  .fds-rule .ri { flex-shrink: 0; font-size: 15px; margin-top: 1px; }
+/* barra de carregamento */
+.s-loader{width:280px;margin-top:40px;opacity:0;animation:sup .5s ease 1.3s forwards}
+.s-loader-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.s-loader-lbl{font-size:10px;color:rgba(255,255,255,.25);letter-spacing:.08em;text-transform:uppercase}
+.s-loader-pct{font-size:11px;color:#9FE1CB;font-weight:600}
+.s-loader-track{height:3px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden}
+.s-loader-fill{height:100%;width:0%;background:linear-gradient(90deg,#1D9E75,#9FE1CB,#534AB7);border-radius:3px;animation:loadGrow 3.2s cubic-bezier(.4,0,.15,1) 1.4s forwards}
+@keyframes loadGrow{0%{width:0%}30%{width:35%}60%{width:65%}80%{width:82%}100%{width:100%}}
 
-  /* ANIMATIONS */
-  @keyframes up {
-    from { opacity: 0; transform: translateY(12px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
+/* partículas extras */
+.s-particle{position:absolute;width:4px;height:4px;border-radius:50%;animation:particleDrift linear infinite}
+@keyframes particleDrift{0%{opacity:0;transform:translateY(0)}20%{opacity:.6}80%{opacity:.3}100%{opacity:0;transform:translateY(-200px)}}
 
-  /* FOOTER */
-  footer {
-    text-align: center;
-    padding: 28px;
-    border-top: 1px solid var(--line);
-    font-size: 12px;
-    color: var(--ink-m);
-    letter-spacing: 0.03em;
-  }
-  footer em { color: var(--gold); font-style: italic; }
+@keyframes sup{to{opacity:1;transform:translateY(0)}}
+@keyframes iconPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
 
-  /* RESPONSIVE */
-  @media (max-width: 720px) {
-    .week-grid { grid-template-columns: 1fr 1fr; }
-    .fds-day-focus-inline { display: none; }
-    header { padding: 44px 20px 36px; }
-    main { padding: 32px 16px 60px; }
-  }
-  @media (max-width: 420px) {
-    .week-grid { grid-template-columns: 1fr; }
-  }
+/* ══ PAGE ICONS ANIM ══ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeLeft{from{opacity:0;transform:translateX(-14px)}to{opacity:1;transform:translateX(0)}}
+@keyframes popIn{from{opacity:0;transform:scale(.88)}to{opacity:1;transform:scale(1)}}
+@keyframes iconBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes iconRotSlow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes iconPing{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.18);opacity:.8}}
+@keyframes glowPulse{0%,100%{box-shadow:0 0 0 0 transparent}50%{box-shadow:0 0 18px rgba(29,158,117,.25)}}
+
+.anim-fu{opacity:0;animation:fadeUp .55s ease both}
+.anim-pop{opacity:0;animation:popIn .5s ease both}
+.d1{animation-delay:.05s}.d2{animation-delay:.1s}.d3{animation-delay:.15s}.d4{animation-delay:.2s}.d5{animation-delay:.25s}.d6{animation-delay:.3s}
+
+/* ícones nas seções */
+.sh-icon{animation:iconBob 3s ease-in-out infinite}
+.kpi-icon i{animation:iconPing 3s ease-in-out infinite}
+.canal-ico i{transition:transform .25s}
+.canal:hover .canal-ico i{transform:scale(1.25) rotate(-8deg)}
+.why-icon-wrap i{animation:iconBob 4s ease-in-out infinite}
+.flow-node{transition:transform .25s,box-shadow .25s}
+.metric-icon{animation:iconBob 3.5s ease-in-out infinite}
+.op-icon i{animation:iconPing 2.8s ease-in-out infinite}
+.kpi:hover .kpi-icon i{animation:iconRotSlow 1s linear}
+.kpi{animation:glowPulse 4s ease-in-out infinite}
+
+/* ══ HEADER ══ */
+header {
+  background: var(--text);
+  padding: 0 2.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 60px; position: sticky; top: 0; z-index: 100;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+.logo { font-family:'DM Serif Display',serif;font-size:18px;color:#fff;letter-spacing:-.02em;display:flex;align-items:center;gap:10px; }
+.logo-dot { width:8px;height:8px;border-radius:50%;background:#9FE1CB; }
+.logo em { color:#9FE1CB;font-style:normal; }
+.header-right { display:flex;align-items:center;gap:16px; }
+.header-tag { font-size:11px;color:rgba(255,255,255,.3);letter-spacing:.07em;text-transform:uppercase; }
+.header-badge { background:rgba(29,158,117,.2);border:1px solid rgba(29,158,117,.35);color:#9FE1CB;font-size:11px;padding:4px 12px;border-radius:20px; }
+
+/* ── BLUR BUTTON ── */
+.blur-btn {
+  display:flex;align-items:center;gap:7px;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.14);
+  color:rgba(255,255,255,.6);
+  font-family:'DM Sans',sans-serif;
+  font-size:12px;font-weight:500;
+  padding:6px 14px;border-radius:20px;
+  cursor:pointer;transition:all .2s;
+  letter-spacing:.02em;
+}
+.blur-btn:hover{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.25)}
+.blur-btn i{font-size:15px}
+.blur-btn.active{background:rgba(159,225,203,.12);border-color:rgba(159,225,203,.3);color:#9FE1CB}
+
+/* ── BLUR MODE ── */
+body.blur-mode .blur-num {
+  filter: blur(7px);
+  user-select: none;
+  transition: filter .3s ease;
+}
+body:not(.blur-mode) .blur-num {
+  filter: blur(0px);
+  transition: filter .3s ease;
+}
+
+/* ══ TABS ══ */
+.tabs-bar {
+  background: var(--surface); border-bottom: 1px solid var(--border);
+  padding: 0 2.5rem; display:flex; gap:0;
+  position: sticky; top: 60px; z-index:99;
+}
+.tab-btn {
+  padding: 0 1.5rem; height:50px; border:none; background:none;
+  font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;
+  color:var(--text3); cursor:pointer; border-bottom:2px solid transparent;
+  transition:all .2s;display:flex;align-items:center;gap:8px;
+}
+.tab-btn i{font-size:17px}
+.tab-btn:hover{color:var(--text)}
+.tab-btn.active{color:var(--text);border-bottom-color:var(--green)}
+.tab-panel{display:none}.tab-panel.active{display:block}
+
+/* ══ PAGE ══ */
+.page { padding:2rem 2.5rem; max-width:1140px; margin:0 auto; }
+
+/* ══ SECTION HEADER ══ */
+.sh { display:flex;align-items:center;gap:10px;margin-bottom:16px; }
+.sh-icon { width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0; }
+.shi-green{background:var(--green-l);color:var(--green)}
+.shi-blue{background:var(--blue-l);color:var(--blue)}
+.shi-purple{background:var(--purple-l);color:var(--purple)}
+.shi-amber{background:var(--amber-l);color:var(--amber)}
+.sh-title{font-size:13px;font-weight:600;color:var(--text)}
+.sh-sub{font-size:11px;color:var(--text3)}
+.gap{margin-bottom:2rem}
+
+/* ══ KPI ══ */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.kpi {
+  background:var(--surface);border-radius:var(--r);border:1px solid var(--border);
+  padding:18px 20px;position:relative;overflow:hidden;
+  transition:transform .2s,box-shadow .2s;cursor:default;
+}
+.kpi:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.07)}
+.kpi-accent {
+  position:absolute;top:0;right:0;width:60px;height:60px;border-radius:0 var(--r) 0 60px;
+  opacity:.08;
+}
+.kpi-icon{font-size:22px;margin-bottom:8px}
+.kpi-lbl{font-size:11px;color:var(--text3);margin-bottom:5px;font-weight:500;letter-spacing:.02em}
+.kpi-val{font-family:'DM Serif Display',serif;font-size:32px;line-height:1;margin-bottom:3px}
+.kpi-sub{font-size:11px;color:var(--text3)}
+.kv-green{color:var(--green)}.kv-amber{color:var(--amber)}.kv-blue{color:var(--blue)}.kv-purple{color:var(--purple)}
+
+/* ══ GRID ══ */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+
+/* ══ CARD ══ */
+.card{background:var(--surface);border-radius:var(--r);border:1px solid var(--border);padding:1.4rem 1.5rem}
+.card-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:3px}
+.card-sub{font-size:11px;color:var(--text3);margin-bottom:16px}
+
+/* ══ BAR ══ */
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+.bar-lbl{font-size:11px;color:var(--text2);width:44px;text-align:right;flex-shrink:0}
+.bar-track{flex:1;height:10px;background:var(--surface2);border-radius:6px;overflow:hidden;position:relative}
+.bar-fill{height:100%;border-radius:6px;transition:width 1s ease}
+.bar-shine{position:absolute;top:0;left:0;right:0;height:50%;background:rgba(255,255,255,.3);border-radius:6px 6px 0 0}
+.bar-val{font-size:11px;color:var(--text2);width:50px;font-weight:500}
+
+/* ══ FUNNEL ══ */
+.funnel-step{display:flex;align-items:center;gap:12px;margin-bottom:10px;padding:10px 12px;border-radius:var(--r-sm);transition:background .2s}
+.funnel-step:hover{background:var(--surface2)}
+.f-num{font-family:'DM Serif Display',serif;font-size:24px;width:76px;text-align:right;flex-shrink:0}
+.f-label{font-size:12px;color:var(--text2);flex:1}
+.pill{font-size:10px;font-weight:600;padding:4px 12px;border-radius:20px;flex-shrink:0;letter-spacing:.04em;text-transform:uppercase}
+.pill-g{background:var(--green-l);color:var(--green-d)}
+.pill-a{background:var(--amber-l);color:var(--amber-d)}
+.pill-b{background:var(--blue-l);color:var(--blue-d)}
+.pill-p{background:var(--purple-l);color:var(--purple-d)}
+
+/* ══ INSIGHT ══ */
+.ins{border-radius:var(--r-sm);padding:13px 15px;border-left:3px solid;margin-bottom:10px}
+.ins:last-child{margin-bottom:0}
+.ins-tag{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;display:flex;align-items:center;gap:5px}
+.ins-tag i{font-size:13px}
+.ins-text{font-size:12px;line-height:1.55}
+.ig{background:var(--green-l);border-color:var(--green)} .ig .ins-tag{color:var(--green-d)} .ig .ins-text{color:#0D5E42}
+.ia{background:var(--amber-l);border-color:var(--amber)} .ia .ins-tag{color:var(--amber-d)} .ia .ins-text{color:#6B4210}
+.ib{background:var(--blue-l);border-color:var(--blue)} .ib .ins-tag{color:var(--blue-d)} .ib .ins-text{color:#0E3A6E}
+.ir{background:var(--red-l);border-color:var(--red)} .ir .ins-tag{color:var(--red-d)} .ir .ins-text{color:#6E1515}
+.ip{background:var(--purple-l);border-color:var(--purple)} .ip .ins-tag{color:var(--purple-d)} .ip .ins-text{color:#2A235C}
+
+/* ══ META ROW ══ */
+.meta-row{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border);gap:12px}
+.meta-row:last-child{border-bottom:none}
+.meta-key{font-size:12px;color:var(--text2);display:flex;align-items:center;gap:7px}
+.meta-key i{font-size:15px;color:var(--text3)}
+.meta-val{font-size:12px;font-weight:600;color:var(--text);text-align:right}
+
+/* ══ CANAL ══ */
+.canal{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)}
+.canal:last-child{border-bottom:none}
+.canal-ico{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.canal-name{font-size:12px;color:var(--text);flex:1;font-weight:500}
+.canal-sub{font-size:11px;color:var(--text3)}
+.status{font-size:10px;font-weight:600;padding:4px 12px;border-radius:20px;letter-spacing:.04em}
+.s-on{background:var(--green-l);color:var(--green-d)}
+.s-off{background:var(--red-l);color:var(--red-d)}
+.s-soon{background:var(--amber-l);color:var(--amber-d)}
+
+/* ══ MONTH CHART ══ */
+.mchart{display:flex;align-items:flex-end;gap:6px;height:110px;padding-bottom:4px}
+.mc-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer}
+.mc-bar{width:100%;border-radius:4px 4px 0 0;transition:opacity .2s,transform .2s;min-height:6px}
+.mc-col:hover .mc-bar{opacity:.75;transform:scaleY(1.03);transform-origin:bottom}
+.mc-lbl{font-size:9px;color:var(--text3);font-weight:500}
+.mc-val{font-size:9px;color:var(--text2);font-weight:600}
+
+/* ══ DIVIDER ══ */
+.div{height:1px;background:var(--border);margin:1.5rem 0}
+
+/* ═══════════════════════
+   TAB 2 — REATIVAÇÃO
+═══════════════════════ */
+
+/* Hero */
+.hero {
+  background: var(--text); border-radius:var(--r);
+  padding:2.5rem 2.5rem; margin-bottom:2rem;
+  position:relative;overflow:hidden;
+  display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;
+}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:280px;height:280px;border-radius:50%;background:rgba(159,225,203,.06)}
+.hero::after{content:'';position:absolute;bottom:-80px;left:25%;width:360px;height:360px;border-radius:50%;background:rgba(83,74,183,.05)}
+.hero-text{position:relative;z-index:1}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(159,225,203,.1);border:1px solid rgba(159,225,203,.2);border-radius:20px;padding:5px 14px;margin-bottom:16px}
+.hero-eyebrow i{color:#9FE1CB;font-size:14px}.hero-eyebrow span{font-size:11px;color:rgba(255,255,255,.45);letter-spacing:.07em;text-transform:uppercase}
+.hero-title{font-family:'DM Serif Display',serif;font-size:34px;color:#fff;line-height:1.15;margin-bottom:12px}
+.hero-title em{color:#9FE1CB;font-style:normal}
+.hero-desc{font-size:13px;color:rgba(255,255,255,.4);line-height:1.65;max-width:540px}
+.hero-nums{position:relative;z-index:1;display:flex;flex-direction:column;gap:14px;flex-shrink:0}
+.hero-num-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-sm);padding:14px 18px;text-align:right;min-width:140px}
+.hnc-val{font-family:'DM Serif Display',serif;font-size:30px;color:#9FE1CB;line-height:1}
+.hnc-lbl{font-size:10px;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.06em;margin-top:3px}
+
+/* Por que funciona */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.why-card{background:var(--surface);border-radius:var(--r);border:1px solid var(--border);padding:1.3rem;transition:transform .2s,box-shadow .2s}
+.why-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.08)}
+.why-icon-wrap{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:12px}
+.why-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px}
+.why-text{font-size:12px;color:var(--text2);line-height:1.6}
+.why-tag{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;padding:3px 10px;border-radius:20px;margin-top:10px;letter-spacing:.04em}
+
+/* Fluxo */
+.flow-box{background:var(--surface);border-radius:var(--r);border:1px solid var(--border);padding:1.75rem;margin-bottom:2rem}
+.flow-hd{font-size:16px;font-weight:600;color:var(--text);margin-bottom:3px}
+.flow-sd{font-size:12px;color:var(--text3);margin-bottom:2rem}
+.flow-tl{display:flex;align-items:flex-start;gap:0;position:relative}
+.flow-tl::before{content:'';position:absolute;top:27px;left:32px;right:32px;height:2px;background:var(--border2);z-index:0}
+.flow-step{flex:1;display:flex;flex-direction:column;align-items:center;position:relative;z-index:1}
+.flow-node{width:54px;height:54px;border-radius:50%;border:2px solid;display:flex;align-items:center;justify-content:center;font-size:22px;background:var(--surface);margin-bottom:14px;transition:transform .25s,box-shadow .25s}
+.flow-node:hover{transform:scale(1.1)}
+.fn-b{border-color:var(--blue);color:var(--blue)} .fn-b:hover{box-shadow:0 0 0 6px var(--blue-l)}
+.fn-g{border-color:var(--green);color:var(--green)} .fn-g:hover{box-shadow:0 0 0 6px var(--green-l)}
+.fn-a{border-color:var(--amber);color:var(--amber)} .fn-a:hover{box-shadow:0 0 0 6px var(--amber-l)}
+.flow-day{font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:5px}
+.fd-b{color:var(--blue)}.fd-g{color:var(--green)}.fd-a{color:var(--amber)}
+.flow-name{font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px}
+.flow-desc{font-size:11px;color:var(--text2);text-align:center;max-width:140px;line-height:1.5}
+
+/* Mensagens */
+.msgs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:2rem}
+.msg-card{border-radius:var(--r);border:1px solid var(--border);overflow:hidden;transition:transform .2s,box-shadow .2s}
+.msg-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.08)}
+.msg-hd{padding:13px 16px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between}
+.msg-hd i{font-size:18px}
+.mhd-b{background:var(--blue-l);color:var(--blue-d)}
+.mhd-g{background:var(--green-l);color:var(--green-d)}
+.mhd-a{background:var(--amber-l);color:var(--amber-d)}
+.msg-body{background:var(--surface);padding:1.1rem 1.2rem}
+.msg-timing{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text3);margin-bottom:10px}
+.msg-timing i{font-size:14px}
+.msg-bubble{background:#E8F8F2;border:1px solid rgba(29,158,117,.15);border-radius:14px 14px 3px 14px;padding:14px 16px;font-size:13px;color:#1A1916;line-height:1.65;margin-bottom:12px;position:relative}
+.msg-bubble::after{content:'';position:absolute;bottom:-8px;right:14px;width:0;height:0;border-left:8px solid transparent;border-top:8px solid #E8F8F2}
+.msg-note{font-size:11px;color:var(--text2);background:var(--surface2);border-radius:var(--r-sm);padding:10px 12px;line-height:1.55}
+.msg-note strong{color:var(--text);font-weight:600}
+
+/* Segmentação */
+.seg-section{background:var(--surface);border-radius:var(--r);border:1px solid var(--border);padding:1.75rem;margin-bottom:2rem}
+.seg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:1.25rem}
+.seg-card{border-radius:var(--r-sm);border:1px solid var(--border);padding:16px;transition:transform .2s}
+.seg-card:hover{transform:translateY(-2px)}
+.seg-badge{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:10px}
+.sb-1{background:var(--purple-l);color:var(--purple-d)}
+.sb-2{background:var(--blue-l);color:var(--blue-d)}
+.sb-3{background:var(--surface2);color:var(--text2)}
+.sb-now{background:var(--green-d);color:#9FE1CB}
+.seg-num{font-family:'DM Serif Display',serif;font-size:32px;color:var(--text);line-height:1;margin-bottom:4px}
+.seg-lbl{font-size:12px;color:var(--text2);margin-bottom:8px;font-weight:500}
+.seg-tip{font-size:11px;color:var(--text3);line-height:1.55}
+.seg-card.now{background:linear-gradient(135deg,#064D38,#0F6E56);border-color:var(--green)}
+.seg-card.now .seg-num,.seg-card.now .seg-lbl{color:#9FE1CB}
+.seg-card.now .seg-tip{color:rgba(159,225,203,.6)}
+
+/* Métricas */
+.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:2rem}
+.metric-card{background:var(--text);border-radius:var(--r);padding:18px 20px;position:relative;overflow:hidden}
+.metric-card::before{content:'';position:absolute;top:-20px;right:-20px;width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,.03)}
+.metric-icon{font-size:22px;margin-bottom:8px;display:block}
+.metric-lbl{font-size:10px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.07em;margin-bottom:5px}
+.metric-val{font-family:'DM Serif Display',serif;font-size:30px;color:#9FE1CB;line-height:1}
+.metric-sub{font-size:11px;color:rgba(255,255,255,.25);margin-top:4px}
+
+/* Regras */
+.rules-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:2rem}
+.rules-card{background:var(--surface);border-radius:var(--r);border:1px solid var(--border);padding:1.4rem}
+.rules-title{font-size:14px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.rule-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;font-size:12px;line-height:1.55;color:var(--text2)}
+.rule-item:last-child{margin-bottom:0}
+.rule-item i{font-size:17px;flex-shrink:0;margin-top:1px}
+
+/* Cronograma */
+.crono-box{background:var(--surface);border-radius:var(--r);border:1px solid var(--border);padding:1.75rem;margin-bottom:2rem}
+.crono-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:1.25rem}
+.crono-step{background:var(--surface2);border-radius:var(--r-sm);padding:16px;position:relative;border:1px solid transparent;transition:border-color .2s}
+.crono-step:hover{border-color:var(--border2)}
+.crono-n{font-family:'DM Serif Display',serif;font-size:48px;color:var(--border2);line-height:1;margin-bottom:6px}
+.crono-t{font-size:13px;font-weight:600;color:var(--text);margin-bottom:5px}
+.crono-d{font-size:11px;color:var(--text2);line-height:1.55}
+
+/* Operação */
+.op-hero{background:var(--text);border-radius:var(--r);padding:2rem 2.5rem;margin-bottom:1.5rem;position:relative;overflow:hidden}
+.op-hero::after{content:'';position:absolute;bottom:-40px;right:10%;width:200px;height:200px;border-radius:50%;background:rgba(159,225,203,.05)}
+.op-hero-title{font-family:'DM Serif Display',serif;font-size:26px;color:#fff;margin-bottom:8px;position:relative;z-index:1}
+.op-hero-title em{color:#9FE1CB;font-style:normal}
+.op-hero-sub{font-size:13px;color:rgba(255,255,255,.38);max-width:600px;line-height:1.6;position:relative;z-index:1}
+.op-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:1.5rem}
+.op-card{background:var(--surface);border-radius:var(--r);border:1px solid var(--border);padding:1.3rem}
+.op-card-head{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.op-icon{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+.oi-b{background:var(--blue-l);color:var(--blue)}
+.oi-g{background:var(--green-l);color:var(--green)}
+.oi-a{background:var(--amber-l);color:var(--amber)}
+.op-card-title{font-size:13px;font-weight:600;color:var(--text)}
+.op-card-sub{font-size:11px;color:var(--text3)}
+.op-item{display:flex;align-items:flex-start;gap:8px;margin-bottom:9px;font-size:12px;line-height:1.55;color:var(--text2)}
+.op-item i{font-size:15px;flex-shrink:0;margin-top:1px}
+
+/* Planilha */
+.table-wrap{overflow-x:auto;margin-bottom:10px}
+table{width:100%;border-collapse:collapse;font-size:12px}
+thead tr{background:var(--surface2)}
+th{padding:10px 13px;text-align:left;border:1px solid var(--border);color:var(--text2);font-weight:600;white-space:nowrap;font-size:11px;letter-spacing:.02em}
+td{padding:9px 13px;border:1px solid var(--border);color:var(--text2)}
+tbody tr:nth-child(even){background:var(--surface2)}
+.check{color:var(--green);font-size:16px;font-weight:700}
+.dash-cell{color:var(--text3);text-align:center}
+
+/* Regras de ouro */
+.gold-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+
+@media(max-width:900px){
+  .kpi-grid,.two-col,.three-col,.why-grid,.msgs-grid,.seg-grid,.rules-grid,.metrics-grid,.crono-grid,.op-cards,.gold-grid{grid-template-columns:1fr 1fr}
+  .hero{grid-template-columns:1fr}
+  .hero-nums{flex-direction:row;flex-wrap:wrap}
+}
+@media(max-width:580px){
+  .kpi-grid,.three-col,.why-grid,.msgs-grid,.seg-grid,.rules-grid,.metrics-grid,.crono-grid,.op-cards,.gold-grid{grid-template-columns:1fr}
+  .page{padding:1.25rem}
+}
 </style>
 </head>
 <body>
 
+<!-- SPLASH -->
+<div id="splash">
+  <div class="s-orb s-orb-1"></div>
+  <div class="s-orb s-orb-2"></div>
+  <div class="s-orb s-orb-3"></div>
+  <div class="s-orb s-orb-4"></div>
+  <div class="s-dots"></div>
+  <div class="s-ring"></div>
+  <div class="s-ring-2"></div>
+  <div class="s-ring-3"></div>
+  <div class="s-orbit-icon soi-1" style="transform:rotate(0deg) translateX(210px) rotate(0deg)"><i class="ti ti-tooth"></i></div>
+  <div class="s-orbit-icon soi-2" style="transform:rotate(90deg) translateX(210px) rotate(-90deg)"><i class="ti ti-heart"></i></div>
+  <div class="s-orbit-icon soi-3" style="transform:rotate(180deg) translateX(210px) rotate(-180deg)"><i class="ti ti-sparkles"></i></div>
+  <div class="s-orbit-icon soi-4" style="transform:rotate(270deg) translateX(210px) rotate(-270deg)"><i class="ti ti-users"></i></div>
+  <i class="ti ti-brand-whatsapp s-fi" style="left:7%;top:82%;animation-duration:7s;animation-delay:0s;font-size:28px;color:rgba(29,158,117,.15)"></i>
+  <i class="ti ti-medical-cross s-fi" style="left:14%;top:68%;animation-duration:8.5s;animation-delay:1s;font-size:22px;color:rgba(255,255,255,.07)"></i>
+  <i class="ti ti-chart-bar s-fi" style="left:82%;top:75%;animation-duration:9s;animation-delay:.5s;font-size:26px;color:rgba(83,74,183,.18)"></i>
+  <i class="ti ti-star s-fi" style="left:76%;top:60%;animation-duration:6.5s;animation-delay:2s;font-size:20px;color:rgba(186,117,23,.18)"></i>
+  <i class="ti ti-award s-fi" style="left:88%;top:82%;animation-duration:7.5s;animation-delay:1.5s;font-size:19px;color:rgba(255,255,255,.06)"></i>
+  <i class="ti ti-calendar-heart s-fi" style="left:5%;top:45%;animation-duration:6s;animation-delay:.8s;font-size:24px;color:rgba(24,95,165,.16)"></i>
+  <i class="ti ti-stethoscope s-fi" style="left:55%;top:86%;animation-duration:10s;animation-delay:.3s;font-size:22px;color:rgba(255,255,255,.05)"></i>
+  <i class="ti ti-microscope s-fi" style="left:38%;top:89%;animation-duration:8s;animation-delay:1.2s;font-size:20px;color:rgba(29,158,117,.12)"></i>
+  <i class="ti ti-dna s-fi" style="left:90%;top:40%;animation-duration:11s;animation-delay:2.5s;font-size:26px;color:rgba(83,74,183,.12)"></i>
+  <i class="ti ti-shield-check s-fi" style="left:20%;top:88%;animation-duration:9.5s;animation-delay:.6s;font-size:18px;color:rgba(255,255,255,.06)"></i>
+  <div class="s-particle" style="left:30%;top:90%;background:#9FE1CB;animation-duration:4s;animation-delay:0s;opacity:.4"></div>
+  <div class="s-particle" style="left:60%;top:88%;background:#AFA9EC;animation-duration:5s;animation-delay:1s;opacity:.3"></div>
+  <div class="s-particle" style="left:50%;top:92%;background:#FAC775;animation-duration:4.5s;animation-delay:.5s;opacity:.35"></div>
+  <div class="s-particle" style="left:75%;top:91%;background:#85B7EB;animation-duration:6s;animation-delay:2s;opacity:.3"></div>
+  <div class="s-center">
+    <div class="s-mark"><i class="ti ti-palette"></i><span>Paleta Mkt</span></div>
+    <p class="s-logo">Dra. <em>Yasmim</em><br>Meneses Conde</p>
+    <p class="s-sub">Sourrir Personalitê · Manaus · Amazonas</p>
+    <div class="s-specs">
+      <div class="s-spec"><div class="s-spec-ico ss-g"><i class="ti ti-tooth"></i></div><span class="s-spec-lbl">Implante</span></div>
+      <div class="s-spec"><div class="s-spec-ico ss-p"><i class="ti ti-sparkles"></i></div><span class="s-spec-lbl">Estética</span></div>
+      <div class="s-spec"><div class="s-spec-ico ss-a"><i class="ti ti-heart"></i></div><span class="s-spec-lbl">Cuidado</span></div>
+      <div class="s-spec"><div class="s-spec-ico ss-b"><i class="ti ti-shield-check"></i></div><span class="s-spec-lbl">Qualidade</span></div>
+      <div class="s-spec"><div class="s-spec-ico ss-r"><i class="ti ti-user-heart"></i></div><span class="s-spec-lbl">Humanizado</span></div>
+    </div>
+    <div class="s-loader">
+      <div class="s-loader-top">
+        <span class="s-loader-lbl">Carregando estratégia</span>
+        <span class="s-loader-pct" id="pctNum">0%</span>
+      </div>
+      <div class="s-loader-track"><div class="s-loader-fill"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
 <header>
-  <p class="eyebrow">Paleta Mkt · Estratégia de Conteúdo</p>
-  <h1>Stories <em>Diários</em><br>Dra. Sabrina Carvalho</h1>
-  <div class="h-divider"></div>
-  <p class="h-sub">@dra.sabrinacarvalhoo · Nutrologia & Medicina Integrativa · Manaus/AM</p>
+  <div class="logo"><div class="logo-dot"></div>Paleta <em>Mkt</em> · Dra. Yasmim</div>
+  <div class="header-right">
+    <span class="header-tag">Sourrir Personalitê</span>
+    <button class="blur-btn" id="blurBtn" onclick="toggleBlur()">
+      <i class="ti ti-eye" id="blurIcon"></i>
+      <span id="blurLabel">Ocultar números</span>
+    </button>
+    <span class="header-badge"><i class="ti ti-map-pin" style="font-size:12px;vertical-align:-1px"></i> Manaus</span>
+  </div>
 </header>
 
-<main>
+<!-- TABS -->
+<nav class="tabs-bar">
+  <button class="tab-btn active" onclick="showTab('dashboard')" id="tab-dashboard">
+    <i class="ti ti-chart-dots"></i> Base de pacientes
+  </button>
+  <button class="tab-btn" onclick="showTab('reativacao')" id="tab-reativacao">
+    <i class="ti ti-heart-handshake"></i> Reativação por aniversário
+  </button>
+</nav>
 
-  <!-- SEMANA -->
-  <p class="s-label">Visão geral</p>
-  <h2 class="s-title">O que acontece <em>durante a semana</em></h2>
-  <p class="s-desc">Segunda a sexta, a Júlia cuida de tudo. Aqui está o panorama do que está sendo publicado em cada dia — sem necessidade de acompanhar ou aprovar cada peça.</p>
+<!-- ══════════ TAB 1 ══════════ -->
+<div class="tab-panel active" id="panel-dashboard">
+<div class="page">
 
-  <div class="week-grid">
-
-    <div class="day-card">
-      <p class="day-name">Segunda</p>
-      <p class="day-theme">Agenda & Expectativa</p>
-      <p class="day-focus">Organização e autoridade para abrir a semana com intenção.</p>
-      <div class="day-stories">
-        <span class="day-story-item">Médica no consultório ou estudando</span>
-        <span class="day-story-item">Protocolo ou exame em andamento</span>
-        <span class="day-story-item">CTA para agendamento</span>
-      </div>
+  <div class="kpi-grid gap anim" style="margin-top:1.5rem">
+    <div class="kpi anim d1">
+      <div class="kpi-accent" style="background:var(--text)"></div>
+      <div class="kpi-icon" style="color:var(--text3)"><i class="ti ti-database"></i></div>
+      <p class="kpi-lbl">Total de cadastros</p>
+      <p class="kpi-val blur-num">9.354</p>
+      <p class="kpi-sub">registros brutos na clínica</p>
     </div>
-
-    <div class="day-card">
-      <p class="day-name">Terça</p>
-      <p class="day-theme">Bastidores & Segurança</p>
-      <p class="day-focus">Mostrar rigor técnico e profundidade do trabalho.</p>
-      <div class="day-stories">
-        <span class="day-story-item">Detalhes da clínica (equipamentos, insumos)</span>
-        <span class="day-story-item">Médica com suplemento ou lendo</span>
-        <span class="day-story-item">Enquete ou caixa de perguntas</span>
-      </div>
+    <div class="kpi anim d2">
+      <div class="kpi-accent" style="background:var(--green)"></div>
+      <div class="kpi-icon" style="color:var(--green)"><i class="ti ti-user-check"></i></div>
+      <p class="kpi-lbl">Aptos para contato</p>
+      <p class="kpi-val blur-num kv-green">7.630</p>
+      <p class="kpi-sub">adultos com celular válido</p>
     </div>
-
-    <div class="day-card">
-      <p class="day-name">Quarta</p>
-      <p class="day-theme">Conhecimento Técnico</p>
-      <p class="day-focus">Educar com conteúdo que o seguidor não encontra em outro lugar.</p>
-      <div class="day-stories">
-        <span class="day-story-item">Dica sobre emagrecimento ou inflamação</span>
-        <span class="day-story-item">Médica explicando ou prato colorido</span>
-        <span class="day-story-item">Direcionamento para post do feed</span>
-      </div>
+    <div class="kpi anim d3">
+      <div class="kpi-accent" style="background:var(--purple)"></div>
+      <div class="kpi-icon" style="color:var(--purple)"><i class="ti ti-target"></i></div>
+      <p class="kpi-lbl">Na faixa da persona</p>
+      <p class="kpi-val blur-num kv-purple">5.335</p>
+      <p class="kpi-sub">30–70 anos · 70% da base</p>
     </div>
-
-    <div class="day-card">
-      <p class="day-name">Quinta</p>
-      <p class="day-theme">Conexão & Ambiente</p>
-      <p class="day-focus">Criar o desejo de ser atendida naquele espaço.</p>
-      <div class="day-stories">
-        <span class="day-story-item">Fachada, recepção ou detalhe da clínica</span>
-        <span class="day-story-item">Médica com equipe ou parceiros</span>
-        <span class="day-story-item">Humanização com caixa de perguntas</span>
-      </div>
+    <div class="kpi anim d4">
+      <div class="kpi-accent" style="background:var(--amber)"></div>
+      <div class="kpi-icon" style="color:var(--amber)"><i class="ti ti-trending-up"></i></div>
+      <p class="kpi-lbl">Meta faturamento</p>
+      <p class="kpi-val blur-num kv-amber">R$60k</p>
+      <p class="kpi-sub">meta mensal declarada</p>
     </div>
-
-    <div class="day-card">
-      <p class="day-name">Sexta</p>
-      <p class="day-theme">Escolhas Conscientes</p>
-      <p class="day-focus">Encerrar a semana com equilíbrio e prevenção para o fim de semana.</p>
-      <div class="day-stories">
-        <span class="day-story-item">Lifestyle leve — café, look casual</span>
-        <span class="day-story-item">Prevenção: "exceção não vira regra"</span>
-        <span class="day-story-item">Fechamento positivo e leve</span>
-      </div>
-    </div>
-
   </div>
 
-  <div class="julia-band">
-    <span class="icon">✅</span>
-    <p><strong>Tudo acima é responsabilidade da Júlia.</strong> Ela cuida da produção, legendas, publicação e monitoramento de segunda a sexta. Sua única tarefa nesse período é enviar fotos do acervo quando solicitado.</p>
+  <!-- Oportunidade imediata -->
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:2rem">
+    <div style="background:linear-gradient(135deg,#064D38,#1D9E75);border-radius:var(--r);padding:18px 20px;position:relative;overflow:hidden">
+      <div style="position:absolute;top:-20px;right:-20px;width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,.06)"></div>
+      <i class="ti ti-confetti" style="font-size:24px;color:#9FE1CB;margin-bottom:8px;display:block"></i>
+      <p style="font-size:11px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px">Aniversariantes · Maio</p>
+      <p style="font-family:'DM Serif Display',serif;font-size:36px;color:#fff;line-height:1"><span class="blur-num">632</span></p>
+      <p style="font-size:11px;color:rgba(255,255,255,.4);margin-top:4px">Mês atual · contato agora</p>
+    </div>
+    <div style="background:var(--surface);border-radius:var(--r);border:1px solid var(--border);padding:18px 20px">
+      <i class="ti ti-calendar-event" style="font-size:24px;color:var(--blue);margin-bottom:8px;display:block"></i>
+      <p style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px">Aniversariantes · Junho</p>
+      <p style="font-family:'DM Serif Display',serif;font-size:36px;color:var(--blue);line-height:1"><span class="blur-num">588</span></p>
+      <p style="font-size:11px;color:var(--text3);margin-top:4px">Próximo mês · preparar agora</p>
+    </div>
+    <div style="background:var(--surface);border-radius:var(--r);border:1px solid var(--border);padding:18px 20px">
+      <i class="ti ti-chart-line" style="font-size:24px;color:var(--amber);margin-bottom:8px;display:block"></i>
+      <p style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px">Média mensal</p>
+      <p style="font-family:'DM Serif Display',serif;font-size:36px;color:var(--amber);line-height:1"><span class="blur-num">636</span></p>
+      <p style="font-size:11px;color:var(--text3);margin-top:4px">pacientes/mês ao longo do ano</p>
+    </div>
   </div>
 
-  <hr class="divider">
+  <div class="two-col gap">
+    <div class="card">
+      <div class="sh" style="margin-bottom:6px">
+        <div class="sh-icon shi-purple"><i class="ti ti-users"></i></div>
+        <div><p class="sh-title">Faixa etária — adultos com celular</p><p class="sh-sub">Distribuição dos 7.630 pacientes aptos</p></div>
+      </div>
+      <div style="margin-top:14px">
+        <div class="bar-row">
+          <span class="bar-lbl">18–29</span>
+          <div class="bar-track"><div class="bar-fill" style="width:30%;background:#B4B2A9"></div><div class="bar-shine"></div></div>
+          <span class="bar-val blur-num">2.295 <span style="color:var(--text3);font-size:10px;font-weight:400">30%</span></span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-lbl">30–39</span>
+          <div class="bar-track"><div class="bar-fill" style="width:29%;background:var(--purple)"></div><div class="bar-shine"></div></div>
+          <span class="bar-val blur-num" style="color:var(--purple)">2.234 <span style="font-size:10px;font-weight:400">29%</span></span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-lbl">40–49</span>
+          <div class="bar-track"><div class="bar-fill" style="width:20%;background:#7F77DD"></div><div class="bar-shine"></div></div>
+          <span class="bar-val blur-num">1.561 <span style="color:var(--text3);font-size:10px;font-weight:400">20%</span></span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-lbl">50–59</span>
+          <div class="bar-track"><div class="bar-fill" style="width:12%;background:#AFA9EC"></div><div class="bar-shine"></div></div>
+          <span class="bar-val blur-num">905 <span style="color:var(--text3);font-size:10px;font-weight:400">12%</span></span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-lbl">60+</span>
+          <div class="bar-track"><div class="bar-fill" style="width:8%;background:#CECBF6"></div><div class="bar-shine"></div></div>
+          <span class="bar-val blur-num">635 <span style="color:var(--text3);font-size:10px;font-weight:400">8%</span></span>
+        </div>
+      </div>
+      <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+        <span style="font-size:12px;color:var(--text2);display:flex;align-items:center;gap:6px"><i class="ti ti-target" style="color:var(--purple)"></i>Dentro da persona (30–70)</span>
+        <span style="font-size:15px;font-weight:700;color:var(--purple)">5.335 · 70%</span>
+      </div>
+    </div>
 
-  <!-- FIM DE SEMANA -->
-  <div style="display:flex; align-items:flex-start; gap:20px; margin-bottom:28px; flex-wrap:wrap;">
-    <div style="flex-shrink:0; background:var(--ink); color:var(--gold-l); border-radius:10px; padding:16px 20px; text-align:center; font-family:'Cormorant Garamond',serif; font-size:1.25rem; font-weight:400; line-height:1.35;">
-      <span style="display:block; font-family:'DM Sans',sans-serif; font-size:9px; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:rgba(212,180,131,0.55); margin-bottom:6px;">Sua vez</span>
-      Sáb &<br>Dom
+    <div class="card">
+      <div class="sh" style="margin-bottom:6px">
+        <div class="sh-icon shi-green"><i class="ti ti-calendar-heart"></i></div>
+        <div><p class="sh-title">Aniversariantes por mês</p><p class="sh-sub">Adultos com celular · volume de disparos</p></div>
+      </div>
+      <div class="mchart" id="monthChart" style="margin-top:14px"></div>
+      <div style="display:flex;gap:14px;margin-top:12px;padding-top:12px;border-top:1px solid var(--border);flex-wrap:wrap">
+        <span style="font-size:11px;display:flex;align-items:center;gap:5px;color:var(--text2)"><span style="width:10px;height:10px;border-radius:2px;background:var(--green);display:inline-block"></span>Maio · 632</span>
+        <span style="font-size:11px;display:flex;align-items:center;gap:5px;color:var(--text2)"><span style="width:10px;height:10px;border-radius:2px;background:var(--amber);display:inline-block"></span>Junho · 588</span>
+        <span style="font-size:11px;display:flex;align-items:center;gap:5px;color:var(--text3)"><span style="width:10px;height:10px;border-radius:2px;background:#B4B2A9;display:inline-block"></span>Demais</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="two-col gap">
+    <div class="card">
+      <div class="sh" style="margin-bottom:6px">
+        <div class="sh-icon shi-amber"><i class="ti ti-filter"></i></div>
+        <div><p class="sh-title">Funil de reativação estimado</p><p class="sh-sub">Para atingir 4 reabilitações/mês (meta)</p></div>
+      </div>
+      <div style="margin-top:14px">
+        <div class="funnel-step">
+          <span class="f-num blur-num kv-purple">7.630</span>
+          <span class="f-label"><i class="ti ti-database" style="font-size:14px;vertical-align:-2px;color:var(--text3);margin-right:4px"></i>base adulta com celular</span>
+          <span class="pill pill-p">100%</span>
+        </div>
+        <div class="funnel-step">
+          <span class="f-num blur-num kv-purple">5.335</span>
+          <span class="f-label"><i class="ti ti-target" style="font-size:14px;vertical-align:-2px;color:var(--text3);margin-right:4px"></i>na faixa da persona</span>
+          <span class="pill pill-p">70%</span>
+        </div>
+        <div class="funnel-step">
+          <span class="f-num blur-num kv-amber">~3.200</span>
+          <span class="f-label"><i class="ti ti-clock" style="font-size:14px;vertical-align:-2px;color:var(--text3);margin-right:4px"></i>potencialmente inativos</span>
+          <span class="pill pill-a">est.</span>
+        </div>
+        <div class="funnel-step">
+          <span class="f-num blur-num kv-blue">632</span>
+          <span class="f-label"><i class="ti ti-confetti" style="font-size:14px;vertical-align:-2px;color:var(--text3);margin-right:4px"></i>aniversariantes Maio</span>
+          <span class="pill pill-b">agora</span>
+        </div>
+        <div class="funnel-step">
+          <span class="f-num blur-num kv-green">4</span>
+          <span class="f-label"><i class="ti ti-trophy" style="font-size:14px;vertical-align:-2px;color:var(--text3);margin-right:4px"></i>reabilitações/mês = 0,06%</span>
+          <span class="pill pill-g">meta</span>
+        </div>
+      </div>
+      <div class="ins ig" style="margin-top:14px">
+        <p class="ins-tag"><i class="ti ti-bulb"></i>insight</p>
+        <p class="ins-text">O gargalo não é volume — é reativação e comunicação de valor. A base já tem quem precisa.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="sh" style="margin-bottom:6px">
+        <div class="sh-icon shi-blue"><i class="ti ti-antenna"></i></div>
+        <div><p class="sh-title">Canais de aquisição</p><p class="sh-sub">Situação atual + lacunas identificadas</p></div>
+      </div>
+      <div style="margin-top:14px">
+        <div class="canal"><div class="canal-ico" style="background:#FFF0E5;color:#E87722"><i class="ti ti-message-circle-heart"></i></div><div style="flex:1"><p class="canal-name">Indicações / boca a boca</p><p class="canal-sub">Principal fonte atual</p></div><span class="status s-on">ativo</span></div>
+        <div class="canal"><div class="canal-ico" style="background:#FCE4EC;color:#E91E63"><i class="ti ti-brand-instagram"></i></div><div style="flex:1"><p class="canal-name">Instagram</p><p class="canal-sub">2k–5k seguidores · 3–5x/semana</p></div><span class="status s-on">ativo</span></div>
+        <div class="canal"><div class="canal-ico" style="background:var(--blue-l);color:var(--blue)"><i class="ti ti-users"></i></div><div style="flex:1"><p class="canal-name">Parcerias com profissionais</p><p class="canal-sub">Fonte secundária</p></div><span class="status s-on">ativo</span></div>
+        <div class="canal"><div class="canal-ico" style="background:#E8F8F0;color:var(--green)"><i class="ti ti-brand-whatsapp"></i></div><div style="flex:1"><p class="canal-name">WhatsApp · reativação</p><p class="canal-sub">A estruturar via Business</p></div><span class="status s-soon">a estruturar</span></div>
+        <div class="canal"><div class="canal-ico" style="background:#F3E8FF;color:#9B59B6"><i class="ti ti-brand-tiktok"></i></div><div style="flex:1"><p class="canal-name">TikTok</p><p class="canal-sub">Quer crescer neste canal</p></div><span class="status s-soon">planejado</span></div>
+        <div class="canal"><div class="canal-ico" style="background:var(--red-l);color:var(--red)"><i class="ti ti-map-pin"></i></div><div style="flex:1"><p class="canal-name">Google Meu Negócio</p><p class="canal-sub">Não cadastrado ainda</p></div><span class="status s-off">não tem</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sh gap"><div class="sh-icon shi-green"><i class="ti ti-bulb"></i></div><div><p class="sh-title">Análise estratégica — base × onboarding</p><p class="sh-sub">Cruzamento dos dados com o formulário Paleta Mkt</p></div></div>
+  <div class="three-col gap" style="margin-top:-10px">
+    <div>
+      <div class="ins ig"><p class="ins-tag"><i class="ti ti-rocket"></i>oportunidade</p><p class="ins-text">70% da base (5.335 pacientes) está na faixa da persona ideal. O problema é reativação, não captação.</p></div>
+      <div class="ins ig"><p class="ins-tag"><i class="ti ti-calendar-heart"></i>oportunidade</p><p class="ins-text">636 aniversariantes/mês em média. Para a persona 30–70, são ~445 disparos mensais com contexto emocional pronto.</p></div>
     </div>
     <div>
-      <p class="s-label">Fim de semana</p>
-      <h2 class="s-title">Orientações <em>para você</em></h2>
-      <p class="s-desc" style="margin-bottom:0;">Você publica — nós orientamos. Nada de roteiro fixo: o fim de semana tem plantão, eventos, descanso. As sugestões abaixo são inspirações, não obrigações.</p>
+      <div class="ins ia"><p class="ins-tag"><i class="ti ti-alert-triangle"></i>atenção</p><p class="ins-text">Fidelização em 25–50% significa que 50–75% da base pode estar inativa. São 3.200–5.700 pacientes sem retorno.</p></div>
+      <div class="ins ia"><p class="ins-tag"><i class="ti ti-map-pin"></i>atenção</p><p class="ins-text">Sem Google Meu Negócio, a Dra. perde pacientes que pesquisam por implante em Manaus — canal gratuito e de alto impacto.</p></div>
+    </div>
+    <div>
+      <div class="ins ir"><p class="ins-tag"><i class="ti ti-alert-circle"></i>lacuna crítica</p><p class="ins-text">A base não tem data de última consulta. Sem isso, não dá para segmentar inativos com precisão. Integrar sistema ao CRM é o próximo passo.</p></div>
+      <div class="ins ip"><p class="ins-tag"><i class="ti ti-award"></i>posicionamento</p><p class="ins-text">Diferencial: técnica + humanização + sem pressa. A mensagem de aniversário deve refletir esse tom.</p></div>
     </div>
   </div>
 
-  <div class="notice">
-    <span class="ni">💡</span>
-    <p><strong>A regra de ouro:</strong> se a foto transmite leveza e você está de plantão — <strong>não poste</strong>. Um story autêntico ("plantão hoje 🩺") performa melhor do que uma foto de café que não condiz com a realidade. Autenticidade é o maior ativo de quem constrói marca médica.</p>
-  </div>
-
-  <!-- SÁBADO -->
-  <div class="fds-day open" id="fds-sab">
-    <div class="fds-day-header" onclick="toggleFds('fds-sab')">
-      <span class="fds-day-name">Sábado</span>
-      <span class="fds-day-theme">Prova Social & Escassez</span>
-      <span class="fds-day-focus-inline">Resultados e aquecimento para a próxima semana</span>
-      <span class="fds-toggle">›</span>
+  <div class="card gap">
+    <div class="sh" style="margin-bottom:14px">
+      <div class="sh-icon shi-amber"><i class="ti ti-stethoscope"></i></div>
+      <div><p class="sh-title">Perfil clínico & comercial · Sourrir Personalitê</p><p class="sh-sub">Dados do formulário de onboarding Paleta Mkt · maio 2026</p></div>
     </div>
-    <div class="fds-day-body">
-      <ul class="orient-list">
-        <li>
-          <span class="oi">📸</span>
-          <div>
-            <strong>Se estiver na clínica:</strong> foto encerrando os atendimentos da semana.
-            <div class="caption-example">"Encerrando a semana com o coração grato pelos resultados. 📈"</div>
-          </div>
-        </li>
-        <li>
-          <span class="oi">💬</span>
-          <div>
-            <strong>Feedback de paciente:</strong> print de WhatsApp com nome borrado.
-            <div class="caption-example">"É por isso que amamos o que fazemos! Menos peso, mais vida."</div>
-          </div>
-        </li>
-        <li>
-          <span class="oi">📅</span>
-          <div>
-            <strong>Vagas disponíveis:</strong> qualquer foto + informação de horários abertos.
-            <div class="caption-example">"Agenda de [Mês] aberta. Restam apenas X horários para novos pacientes."</div>
-          </div>
-        </li>
-      </ul>
-      <div class="fds-rule">
-        <span class="ri">⚠️</span>
-        <span>Se estiver de plantão ou descansando, não force os 3 stories. Um story real vale mais que três desconexos.</span>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 2.5rem">
+      <div>
+        <div class="meta-row"><span class="meta-key"><i class="ti ti-tooth"></i>Especialidade</span><span class="meta-val">Implantodontia</span></div>
+        <div class="meta-row"><span class="meta-key"><i class="ti ti-sparkles"></i>Subespecialidade</span><span class="meta-val">Dentística Biomimética</span></div>
+        <div class="meta-row"><span class="meta-key"><i class="ti ti-calendar"></i>Consultas/mês</span><span class="meta-val">10–20 atendimentos</span></div>
+        <div class="meta-row"><span class="meta-key"><i class="ti ti-medical-cross"></i>Implantes/mês</span><span class="meta-val">5–10 procedimentos</span></div>
+        <div class="meta-row"><span class="meta-key"><i class="ti ti-coin"></i>Ticket consulta</span><span class="meta-val">R$220 (abatido no proc.)</span></div>
+      </div>
+      <div>
+        <div class="meta-row"><span class="meta-key"><i class="ti ti-repeat"></i>Pacientes fidelizados</span><span class="meta-val">25–50% da base</span></div>
+        <div class="meta-row"><span class="meta-key"><i class="ti ti-antenna"></i>Fonte principal</span><span class="meta-val">Indicações + Instagram</span></div>
+        <div class="meta-row"><span class="meta-key"><i class="ti ti-trophy"></i>Meta (6 meses)</span><span class="meta-val kv-green">4 reabilitações/mês</span></div>
+        <div class="meta-row"><span class="meta-key"><i class="ti ti-trending-up"></i>Meta faturamento</span><span class="meta-val kv-amber">R$60.000/mês</span></div>
+        <div class="meta-row"><span class="meta-key"><i class="ti ti-flame"></i>Maior desafio</span><span class="meta-val kv-amber">Atrair ticket maior</span></div>
       </div>
     </div>
   </div>
 
-  <!-- DOMINGO -->
-  <div class="fds-day" id="fds-dom">
-    <div class="fds-day-header" onclick="toggleFds('fds-dom')">
-      <span class="fds-day-name">Domingo</span>
-      <span class="fds-day-theme">Mentalidade & Leveza</span>
-      <span class="fds-day-focus-inline">Recarregar e preparar o seguidor para a semana</span>
-      <span class="fds-toggle">›</span>
+</div>
+</div>
+
+<!-- ══════════ TAB 2 ══════════ -->
+<div class="tab-panel" id="panel-reativacao">
+<div class="page">
+
+  <div class="hero anim" style="margin-top:1.5rem">
+    <div class="hero-text">
+      <div class="hero-eyebrow"><i class="ti ti-heart-handshake"></i><span>Estratégia de Reativação · WhatsApp Business</span></div>
+      <p class="hero-title">Reativação por <em>aniversário</em><br>no WhatsApp</p>
+      <p class="hero-desc">Uma sequência de 3 mensagens no tom da Dra. Yasmim — humanizado, sem pressão, aproveitando a janela emocional de 7 dias ao redor do aniversário do paciente. Simples de executar, poderoso no resultado.</p>
     </div>
-    <div class="fds-day-body">
-      <ul class="orient-list">
-        <li>
-          <span class="oi">🌿</span>
-          <div>
-            <strong>Momento de descanso real:</strong> foto de paisagem, livro, vela, natureza — o que você estiver de fato fazendo.
-            <div class="caption-example">"Recarregando para uma nova semana de curas. 🌿"</div>
-          </div>
-        </li>
-        <li>
-          <span class="oi">💭</span>
-          <div>
-            <strong>Frase que você acredita:</strong> algo sobre autocuidado ou saúde integrativa — não precisa ser elaborado, só verdadeiro.
-          </div>
-        </li>
-        <li>
-          <span class="oi">📣</span>
-          <div>
-            <strong>Antecipação da semana:</strong> criar expectativa para o que vem.
-            <div class="caption-example">"Amanhã recomeçamos. Que tal decidir hoje que essa será a semana da sua mudança?"</div>
-          </div>
-        </li>
-      </ul>
-      <div class="fds-rule">
-        <span class="ri">⚠️</span>
-        <span>Evite qualquer post que pareça forçado ou que não reflita o que você está vivendo de fato naquele domingo.</span>
+    <div class="hero-nums">
+      <div class="hero-num-card"><p class="hnc-val blur-num">7.630</p><p class="hnc-lbl">pacientes aptos</p></div>
+      <div class="hero-num-card"><p class="hnc-val blur-num">636</p><p class="hnc-lbl">aniv./mês média</p></div>
+      <div class="hero-num-card"><p class="hnc-val blur-num">3 msgs</p><p class="hnc-lbl">por paciente</p></div>
+    </div>
+  </div>
+
+  <div class="sh"><div class="sh-icon shi-blue"><i class="ti ti-help-circle"></i></div><div><p class="sh-title">Por que o aniversário funciona como gatilho?</p><p class="sh-sub">6 razões estratégicas</p></div></div>
+  <div class="why-grid gap" style="margin-top:12px">
+    <div class="why-card">
+      <div class="why-icon-wrap" style="background:var(--blue-l);color:var(--blue)"><i class="ti ti-heart"></i></div>
+      <p class="why-title">Janela emocional aberta</p>
+      <p class="why-text">No aniversário as pessoas estão mais receptivas a contatos afetivos. Uma mensagem que "lembrou" delas gera impacto muito maior do que em datas aleatórias.</p>
+      <span class="why-tag" style="background:var(--blue-l);color:var(--blue-d)"><i class="ti ti-brain"></i>Psicologia</span>
+    </div>
+    <div class="why-card">
+      <div class="why-icon-wrap" style="background:var(--green-l);color:var(--green)"><i class="ti ti-user-check"></i></div>
+      <p class="why-title">Contato justificado naturalmente</p>
+      <p class="why-text">O paciente não sente que está sendo vendido. O aniversário dá um motivo genuíno para o contato, sem inventar promoção ou urgência artificial.</p>
+      <span class="why-tag" style="background:var(--green-l);color:var(--green-d)"><i class="ti ti-shield-check"></i>Confiança</span>
+    </div>
+    <div class="why-card">
+      <div class="why-icon-wrap" style="background:var(--amber-l);color:var(--amber)"><i class="ti ti-clock"></i></div>
+      <p class="why-title">7 dias de atenção elevada</p>
+      <p class="why-text">A janela começa 3 dias antes e dura até 3 dias depois. Entrar antes do dia posiciona o nome da clínica antes da enxurrada de mensagens do WhatsApp.</p>
+      <span class="why-tag" style="background:var(--amber-l);color:var(--amber-d)"><i class="ti ti-calendar"></i>Timing</span>
+    </div>
+    <div class="why-card">
+      <div class="why-icon-wrap" style="background:var(--purple-l);color:var(--purple)"><i class="ti ti-building-hospital"></i></div>
+      <p class="why-title">Reforça a clínica nova</p>
+      <p class="why-text">Com a Sourrir Personalitê em novo endereço, o aniversário é o contexto perfeito para apresentar a clínica renovada sem forçar uma convocação direta.</p>
+      <span class="why-tag" style="background:var(--purple-l);color:var(--purple-d)"><i class="ti ti-map-pin"></i>Novidade</span>
+    </div>
+    <div class="why-card">
+      <div class="why-icon-wrap" style="background:#E8F8F0;color:var(--green)"><i class="ti ti-brand-whatsapp"></i></div>
+      <p class="why-title">WhatsApp tem 95%+ de abertura</p>
+      <p class="why-text">Diferente de e-mail ou SMS, mensagens no WhatsApp são lidas na grande maioria dos casos — especialmente quando o paciente reconhece o número.</p>
+      <span class="why-tag" style="background:var(--green-l);color:var(--green-d)"><i class="ti ti-chart-bar"></i>Alcance</span>
+    </div>
+    <div class="why-card">
+      <div class="why-icon-wrap" style="background:var(--surface2);color:var(--text2)"><i class="ti ti-coin"></i></div>
+      <p class="why-title">Baixo custo, alto volume</p>
+      <p class="why-text">636 disparos/mês acontecem de forma simples e organizada. O custo por paciente reativado é mínimo comparado ao ticket médio de uma reabilitação.</p>
+      <span class="why-tag" style="background:var(--surface2);color:var(--text2)"><i class="ti ti-scale"></i>ROI</span>
+    </div>
+  </div>
+
+  <div class="flow-box">
+    <p class="flow-hd">O fluxo de 3 mensagens</p>
+    <p class="flow-sd">Sequência cadenciada ao redor do aniversário · tom pessoal, na voz da Dra. Yasmim</p>
+    <div class="flow-tl">
+      <div class="flow-step">
+        <div class="flow-node fn-b"><i class="ti ti-message-forward"></i></div>
+        <p class="flow-day fd-b">D − 3 dias</p>
+        <p class="flow-name">Antecipação</p>
+        <p class="flow-desc">Mensagem leve que planta o nome da clínica antes do dia</p>
+      </div>
+      <div style="flex:1;height:2px;background:var(--border2);margin-top:27px"></div>
+      <div class="flow-step">
+        <div class="flow-node fn-g"><i class="ti ti-confetti"></i></div>
+        <p class="flow-day fd-g">Dia do aniversário</p>
+        <p class="flow-name">Celebração + convite</p>
+        <p class="flow-desc">Parabéns genuíno + menção à clínica nova + abertura</p>
+      </div>
+      <div style="flex:1;height:2px;background:var(--border2);margin-top:27px"></div>
+      <div class="flow-step">
+        <div class="flow-node fn-a"><i class="ti ti-messages"></i></div>
+        <p class="flow-day fd-a">D + 3 dias</p>
+        <p class="flow-name">Follow-up suave</p>
+        <p class="flow-desc">Apenas para quem não respondeu — sem pressão</p>
       </div>
     </div>
   </div>
 
-</main>
+  <div class="sh"><div class="sh-icon shi-green"><i class="ti ti-message-circle-heart"></i></div><div><p class="sh-title">As mensagens — voz da Dra. Yasmim</p><p class="sh-sub">Tom pessoal, caloroso, sem oferta agressiva</p></div></div>
+  <div class="msgs-grid" style="margin-top:12px">
 
-<footer>
-  Produzido por <em>Paleta Mkt</em> · Assessoria de Marketing, Manaus/AM · @paleta.marketing
-</footer>
+    <div class="msg-card">
+      <div class="msg-hd mhd-b"><span><i class="ti ti-message-forward" style="vertical-align:-3px;margin-right:6px"></i>Mensagem 1 · D−3</span><i class="ti ti-clock" style="opacity:.5"></i></div>
+      <div class="msg-body">
+        <div class="msg-timing"><i class="ti ti-clock"></i>3 dias antes · manhã · 9h</div>
+        <div class="msg-bubble">
+          Oi, [Nome]! 🙂<br><br>
+          Passando aqui antes do seu aniversário só pra dizer que eu me lembro de você — e que fico feliz de ter cuidado do seu sorriso por aqui.<br><br>
+          Ah, e a nossa clínica ficou ainda mais gostosa de atender! Temos novidades pra te contar quando puder passar por aqui.<br><br>
+          Até breve,<br>Dra. Yasmim 🦷
+        </div>
+        <div class="msg-note"><strong>Tom:</strong> leve, sem oferta. Planta a clínica nova sem forçar. Cria expectativa para o dia.<br><br><strong>Não mencionar:</strong> preços, procedimentos ou promoções.</div>
+      </div>
+    </div>
+
+    <div class="msg-card">
+      <div class="msg-hd mhd-g"><span><i class="ti ti-confetti" style="vertical-align:-3px;margin-right:6px"></i>Mensagem 2 · Dia</span><i class="ti ti-star" style="opacity:.5"></i></div>
+      <div class="msg-body">
+        <div class="msg-timing"><i class="ti ti-clock"></i>Dia do aniversário · 9h–10h</div>
+        <div class="msg-bubble">
+          Feliz aniversário, [Nome]! 🎂<br><br>
+          Que esse novo ano seja cheio de motivos pra sorrir — de verdade, com saúde e leveza.<br><br>
+          Sinto sua falta por aqui. Quando quiser voltar pra uma avaliação, me chama que a gente encontra um horário pra você.<br><br>
+          Abraços,<br>Dra. Yasmim 💚
+        </div>
+        <div class="msg-note"><strong>Tom:</strong> emotivo e acolhedor. "Sinto sua falta" é o elemento-chave — humaniza sem ser invasivo.<br><br><strong>A abertura:</strong> "me chama" é gentil, não imperativo.</div>
+      </div>
+    </div>
+
+    <div class="msg-card">
+      <div class="msg-hd mhd-a"><span><i class="ti ti-messages" style="vertical-align:-3px;margin-right:6px"></i>Mensagem 3 · D+3</span><i class="ti ti-bell" style="opacity:.5"></i></div>
+      <div class="msg-body">
+        <div class="msg-timing"><i class="ti ti-clock"></i>D+3 · só para quem não respondeu</div>
+        <div class="msg-bubble">
+          Oi, [Nome]! Tudo bem por aí?<br><br>
+          Espero que o aniversário tenha sido especial. 🙂<br><br>
+          Só queria saber como você está. Faz um tempo que não temos notícias suas, e gosto de manter esse cuidado com quem já passou pela nossa clínica.<br><br>
+          Se quiser conversar sobre saúde bucal ou seu sorriso, é só me chamar.<br><br>
+          Até logo,<br>Dra. Yasmim
+        </div>
+        <div class="msg-note"><strong>Tom:</strong> follow-up que parece cuidado, não venda.<br><br><strong>Regra:</strong> se não responder após D+3, parar. Não insistir.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="seg-section">
+    <div class="sh" style="margin-bottom:0"><div class="sh-icon shi-purple"><i class="ti ti-adjustments"></i></div><div><p class="sh-title">Segmentação da base para os disparos</p><p class="sh-sub">Prioridade sugerida baseada na persona declarada no onboarding</p></div></div>
+    <div class="seg-grid">
+      <div class="seg-card">
+        <span class="seg-badge sb-1"><i class="ti ti-trophy" style="font-size:12px"></i>Prioridade 1</span>
+        <p class="seg-num blur-num">2.234</p><p class="seg-lbl">faixa 30–39 anos</p>
+        <p class="seg-tip">Persona principal — adultos ativos, decidem sozinhos. Maior probabilidade de ticket alto e reabilitação completa.</p>
+      </div>
+      <div class="seg-card">
+        <span class="seg-badge sb-1"><i class="ti ti-trophy" style="font-size:12px"></i>Prioridade 1</span>
+        <p class="seg-num blur-num">1.561</p><p class="seg-lbl">faixa 40–49 anos</p>
+        <p class="seg-tip">Maior demanda por implantes e reabilitação oral completa. Alta renda, menos sensível a preço. Perfil ideal para casos complexos.</p>
+      </div>
+      <div class="seg-card">
+        <span class="seg-badge sb-2"><i class="ti ti-star" style="font-size:12px"></i>Prioridade 2</span>
+        <p class="seg-num blur-num">905</p><p class="seg-lbl">faixa 50–59 anos</p>
+        <p class="seg-tip">Grande demanda por reabilitação funcional. Mensagem deve enfatizar mastigação, conforto e qualidade de vida.</p>
+      </div>
+      <div class="seg-card">
+        <span class="seg-badge sb-2"><i class="ti ti-star" style="font-size:12px"></i>Prioridade 2</span>
+        <p class="seg-num blur-num">635</p><p class="seg-lbl">faixa 60+ anos</p>
+        <p class="seg-tip">Muitas vezes dependem de decisão familiar. Mensagem simples, acolhedora. Fortemente ligados a conforto e confiança.</p>
+      </div>
+      <div class="seg-card">
+        <span class="seg-badge sb-3">Prioridade 3</span>
+        <p class="seg-num blur-num">2.295</p><p class="seg-lbl">faixa 18–29 anos</p>
+        <p class="seg-tip">Fora da persona principal, mas podem ter interesse em estética. Disparar após validar prioridades 1 e 2.</p>
+      </div>
+      <div class="seg-card now">
+        <span class="seg-badge sb-now"><i class="ti ti-bolt" style="font-size:12px"></i>Ação agora</span>
+        <p class="seg-num blur-num">632</p><p class="seg-lbl">aniversariantes · Maio 2026</p>
+        <p class="seg-tip">Janela aberta agora. Iniciar fluxo completo para aniversariantes de Junho antes de virar o mês.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sh"><div class="sh-icon shi-amber"><i class="ti ti-chart-line"></i></div><div><p class="sh-title">Métricas esperadas para o fluxo</p><p class="sh-sub">Estimativas baseadas em benchmarks de reativação via WhatsApp</p></div></div>
+  <div class="metrics-grid gap" style="margin-top:12px">
+    <div class="metric-card">
+      <i class="ti ti-mail-opened metric-icon" style="color:#9FE1CB"></i>
+      <p class="metric-lbl">Taxa de abertura</p>
+      <p class="metric-val blur-num">90%+</p>
+      <p class="metric-sub">vs 20–30% do e-mail</p>
+    </div>
+    <div class="metric-card">
+      <i class="ti ti-message-reply metric-icon" style="color:#9FE1CB"></i>
+      <p class="metric-lbl">Taxa de resposta</p>
+      <p class="metric-val blur-num">8–15%</p>
+      <p class="metric-sub">fluxo emocional bem executado</p>
+    </div>
+    <div class="metric-card">
+      <i class="ti ti-calendar-check metric-icon" style="color:#9FE1CB"></i>
+      <p class="metric-lbl">Consultas geradas</p>
+      <p class="metric-val blur-num">15–60</p>
+      <p class="metric-sub">de 636 disparos mensais</p>
+    </div>
+    <div class="metric-card">
+      <i class="ti ti-tooth metric-icon" style="color:#9FE1CB"></i>
+      <p class="metric-lbl">Reabilitações/mês</p>
+      <p class="metric-val blur-num">1–4</p>
+      <p class="metric-sub">meta declarada: 4/mês</p>
+    </div>
+  </div>
+
+  <div class="rules-grid">
+    <div class="rules-card">
+      <p class="rules-title" style="color:var(--green)"><i class="ti ti-circle-check" style="font-size:20px;vertical-align:-3px"></i> O que fazer</p>
+      <div class="rule-item"><i class="ti ti-check" style="color:var(--green)"></i><span>Enviar entre 8h30 e 11h — maior taxa de abertura e resposta</span></div>
+      <div class="rule-item"><i class="ti ti-check" style="color:var(--green)"></i><span>Personalizar com o primeiro nome do paciente em todas as mensagens</span></div>
+      <div class="rule-item"><i class="ti ti-check" style="color:var(--green)"></i><span>Parar após D+3 se não houver resposta — sem insistência</span></div>
+      <div class="rule-item"><i class="ti ti-check" style="color:var(--green)"></i><span>Responder toda reação com atenção — conversas abertas são ouro</span></div>
+      <div class="rule-item"><i class="ti ti-check" style="color:var(--green)"></i><span>Registrar quem respondeu para acompanhamento posterior</span></div>
+      <div class="rule-item"><i class="ti ti-check" style="color:var(--green)"></i><span>Começar pelos segmentos 30–49 anos para validar o fluxo</span></div>
+    </div>
+    <div class="rules-card">
+      <p class="rules-title" style="color:var(--red)"><i class="ti ti-circle-x" style="font-size:20px;vertical-align:-3px"></i> O que não fazer</p>
+      <div class="rule-item"><i class="ti ti-x" style="color:var(--red)"></i><span>Mencionar preços ou promoções nas mensagens de aniversário</span></div>
+      <div class="rule-item"><i class="ti ti-x" style="color:var(--red)"></i><span>Enviar mais de 3 mensagens para o mesmo paciente no fluxo</span></div>
+      <div class="rule-item"><i class="ti ti-x" style="color:var(--red)"></i><span>Usar tom de cobrança ou urgência — "última chance", "não perca"</span></div>
+      <div class="rule-item"><i class="ti ti-x" style="color:var(--red)"></i><span>Disparar mensagem genérica sem o nome do paciente</span></div>
+      <div class="rule-item"><i class="ti ti-x" style="color:var(--red)"></i><span>Disparar fora do horário comercial ou aos fins de semana</span></div>
+      <div class="rule-item"><i class="ti ti-x" style="color:var(--red)"></i><span>Ignorar respostas — cada reply é uma oportunidade real</span></div>
+    </div>
+  </div>
+
+  <div class="crono-box gap">
+    <div class="sh"><div class="sh-icon shi-blue"><i class="ti ti-map"></i></div><div><p class="sh-title">Cronograma de implantação</p><p class="sh-sub">Passos para colocar o fluxo no ar em Maio/Junho 2026</p></div></div>
+    <div class="crono-grid">
+      <div class="crono-step"><p class="crono-n">01</p><p class="crono-t">Exportar base limpa</p><p class="crono-d">Gerar lista de aniversariantes por mês com nome + celular. Remover duplicatas e sem número.</p></div>
+      <div class="crono-step"><p class="crono-n">02</p><p class="crono-t">Configurar WhatsApp</p><p class="crono-d">Ativar WhatsApp Business, salvar templates das 3 mensagens e treinar a secretária no fluxo.</p></div>
+      <div class="crono-step"><p class="crono-n">03</p><p class="crono-t">Testar com Junho</p><p class="crono-d">Usar aniversariantes de Junho (588) como primeiro disparo real. Prioridade: faixa 30–49 anos.</p></div>
+      <div class="crono-step"><p class="crono-n">04</p><p class="crono-t">Medir e ajustar</p><p class="crono-d">Acompanhar taxa de resposta, consultas agendadas e conversões. Refinar conforme feedback.</p></div>
+    </div>
+  </div>
+
+  <!-- OPERAÇÃO -->
+  <div class="op-hero">
+    <p class="op-hero-title">Operação · papel da <em>secretária</em></p>
+    <p class="op-hero-sub">Ela é a responsável por executar o fluxo. Todo mês recebe a lista de aniversariantes, dispara as mensagens nos momentos certos e registra quem respondeu. Simples, repetível e sem ferramenta especial — só organização.</p>
+  </div>
+
+  <div class="op-cards">
+    <div class="op-card">
+      <div class="op-card-head"><div class="op-icon oi-b"><i class="ti ti-calendar-check"></i></div><div><p class="op-card-title">Todo dia 25 do mês</p><p class="op-card-sub">Preparação do próximo mês</p></div></div>
+      <div class="op-item"><i class="ti ti-circle-check" style="color:var(--blue)"></i><span>Abre a planilha de aniversariantes do mês seguinte</span></div>
+      <div class="op-item"><i class="ti ti-circle-check" style="color:var(--blue)"></i><span>Filtra quem tem celular válido</span></div>
+      <div class="op-item"><i class="ti ti-circle-check" style="color:var(--blue)"></i><span>Organiza por data de aniversário (dia 1 ao 31)</span></div>
+      <div class="op-item"><i class="ti ti-circle-check" style="color:var(--blue)"></i><span>Cria planilha: Nome · Celular · Data · Msg1 · Msg2 · Msg3 · Respondeu · Agendou</span></div>
+    </div>
+    <div class="op-card">
+      <div class="op-card-head"><div class="op-icon oi-g"><i class="ti ti-send"></i></div><div><p class="op-card-title">Rotina diária · 9h</p><p class="op-card-sub">Todo dia útil pela manhã</p></div></div>
+      <div class="op-item"><i class="ti ti-circle-check" style="color:var(--green)"></i><span>Quem aniversaria em 3 dias → envia Mensagem 1</span></div>
+      <div class="op-item"><i class="ti ti-circle-check" style="color:var(--green)"></i><span>Aniversariantes do dia → envia Mensagem 2</span></div>
+      <div class="op-item"><i class="ti ti-circle-check" style="color:var(--green)"></i><span>Quem aniversariou há 3 dias sem resposta → envia Mensagem 3</span></div>
+      <div class="op-item"><i class="ti ti-circle-check" style="color:var(--green)"></i><span>Marca na planilha cada mensagem enviada com a data</span></div>
+      <div class="op-item"><i class="ti ti-circle-check" style="color:var(--green)"></i><span>Tempo estimado: 15–30 min por dia</span></div>
+    </div>
+    <div class="op-card">
+      <div class="op-card-head"><div class="op-icon oi-a"><i class="ti ti-messages"></i></div><div><p class="op-card-title">Quando o paciente responde</p><p class="op-card-sub">Gestão das conversas abertas</p></div></div>
+      <div class="op-item"><i class="ti ti-circle-check" style="color:var(--amber)"></i><span>Responde de forma calorosa — nunca empurra consulta na 1ª troca</span></div>
+      <div class="op-item"><i class="ti ti-circle-check" style="color:var(--amber)"></i><span>Se demonstrar interesse → oferece horários disponíveis</span></div>
+      <div class="op-item"><i class="ti ti-circle-check" style="color:var(--amber)"></i><span>Marca: Respondeu ✓ e Agendou ✓ na planilha</span></div>
+      <div class="op-item"><i class="ti ti-circle-check" style="color:var(--amber)"></i><span>Avisa a Dra. Yasmim sobre casos com dor ou urgência</span></div>
+      <div class="op-item"><i class="ti ti-circle-check" style="color:var(--amber)"></i><span>Todo dia 30 envia resumo à Paleta Mkt: disparos · respostas · agendamentos</span></div>
+    </div>
+  </div>
+
+  <div class="card gap">
+    <div class="sh" style="margin-bottom:14px"><div class="sh-icon shi-blue"><i class="ti ti-table"></i></div><div><p class="sh-title">Planilha de controle — modelo</p><p class="sh-sub">Google Sheets ou Excel · uma aba por mês · compartilhar com a Dra. Yasmim em modo visualização</p></div></div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th><th>Celular</th><th>Aniversário</th>
+            <th style="color:var(--blue-d)">Msg 1 D−3</th>
+            <th style="color:var(--green-d)">Msg 2 Dia</th>
+            <th style="color:var(--amber-d)">Msg 3 D+3</th>
+            <th>Respondeu</th><th style="color:var(--green-d)">Agendou</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Maria Silva</td><td>(92) 99999-0001</td><td>03/06</td><td style="text-align:center"><span class="check">✓</span></td><td class="dash-cell">—</td><td class="dash-cell">—</td><td class="dash-cell">—</td><td class="dash-cell">—</td></tr>
+          <tr><td>Carlos Mendes</td><td>(92) 99999-0002</td><td>01/06</td><td style="text-align:center"><span class="check">✓</span></td><td style="text-align:center"><span class="check">✓</span></td><td class="dash-cell">—</td><td style="text-align:center"><span class="check">✓</span></td><td style="text-align:center"><span class="check">✓</span></td></tr>
+          <tr><td>Ana Rodrigues</td><td>(92) 99999-0003</td><td>28/05</td><td style="text-align:center"><span class="check">✓</span></td><td style="text-align:center"><span class="check">✓</span></td><td style="text-align:center"><span class="check">✓</span></td><td class="dash-cell">—</td><td class="dash-cell">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sh" style="margin-bottom:12px"><div class="sh-icon shi-amber"><i class="ti ti-award"></i></div><div><p class="sh-title">Regras de ouro da secretária</p><p class="sh-sub">O que garante que o fluxo funcione do jeito certo</p></div></div>
+  <div class="gold-grid gap">
+    <div class="ins ig"><p class="ins-tag"><i class="ti ti-microphone"></i>tom</p><p class="ins-text">Sempre responda como se fosse a Dra. Yasmim. Use "eu" e "a gente" — nunca "a clínica" ou termos formais.</p></div>
+    <div class="ins ig"><p class="ins-tag"><i class="ti ti-clock"></i>timing</p><p class="ins-text">Só envie entre 8h30 e 17h em dias úteis. Fim de semana só se o paciente responder primeiro.</p></div>
+    <div class="ins ia"><p class="ins-tag"><i class="ti ti-hand-stop"></i>limite</p><p class="ins-text">Máximo 3 mensagens por paciente. Após D+3 sem resposta, arquiva e parte pro próximo.</p></div>
+    <div class="ins ia"><p class="ins-tag"><i class="ti ti-stethoscope"></i>atenção</p><p class="ins-text">Paciente com dor ou urgência → aciona a Dra. imediatamente. Secretária não responde questões clínicas.</p></div>
+    <div class="ins ib"><p class="ins-tag"><i class="ti ti-clipboard"></i>registro</p><p class="ins-text">Toda conversa que resultar em agendamento precisa ser anotada na planilha no mesmo dia.</p></div>
+    <div class="ins ib"><p class="ins-tag"><i class="ti ti-send"></i>reporte</p><p class="ins-text">Todo dia 30, envia resumo à Paleta Mkt: disparados · responderam · agendaram.</p></div>
+  </div>
+
+</div>
+</div>
 
 <script>
-  function toggleFds(id) {
-    const el = document.getElementById(id);
-    el.classList.toggle('open');
+  // Toggle blur mode
+  function toggleBlur(){
+    const body = document.body;
+    const btn = document.getElementById('blurBtn');
+    const icon = document.getElementById('blurIcon');
+    const label = document.getElementById('blurLabel');
+    body.classList.toggle('blur-mode');
+    const isBlurred = body.classList.contains('blur-mode');
+    btn.classList.toggle('active', isBlurred);
+    icon.className = isBlurred ? 'ti ti-eye-off' : 'ti ti-eye';
+    label.textContent = isBlurred ? 'Mostrar números' : 'Ocultar números';
   }
+
+  // Splash — contador de porcentagem
+  const pctEl = document.getElementById('pctNum');
+  let pct = 0;
+  const pctInterval = setInterval(()=>{
+    if(pct < 100){ pct += Math.random() > .7 ? 2 : 1; if(pct>100) pct=100; pctEl.textContent = pct+'%'; }
+    else clearInterval(pctInterval);
+  }, 38);
+
+  window.addEventListener('load',()=>{
+    setTimeout(()=>{
+      pct=100; pctEl.textContent='100%';
+      setTimeout(()=>document.getElementById('splash').classList.add('hide'), 400);
+    }, 4000);
+  });
+
+  function showTab(t){
+    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.getElementById('panel-'+t).classList.add('active');
+    document.getElementById('tab-'+t).classList.add('active');
+    // reanimar elementos da aba
+    document.querySelectorAll('#panel-'+t+' .anim-fu, #panel-'+t+' .anim-pop').forEach((el,i)=>{
+      el.style.animation='none';
+      el.offsetHeight;
+      el.style.animation='';
+    });
+  }
+
+  // Scroll reveal — anima elementos quando entram na viewport
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:.12});
+
+  function setupObserver(){
+    document.querySelectorAll('.kpi,.card,.why-card,.msg-card,.seg-card,.metric-card,.crono-step,.op-card,.ins,.funnel-step').forEach((el,i)=>{
+      el.style.opacity='0';
+      el.style.transform='translateY(16px)';
+      el.style.transition=`opacity .5s ease ${(i%6)*.07}s, transform .5s ease ${(i%6)*.07}s`;
+      observer.observe(el);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', setupObserver);
+
+  // Adiciona classe revealed via CSS
+  const revStyle = document.createElement('style');
+  revStyle.textContent = '.revealed{opacity:1!important;transform:translateY(0)!important}';
+  document.head.appendChild(revStyle);
+
+  // Gráfico de meses
+  const meses=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+  const vals=[597,614,615,674,632,588,649,595,691,651,674,650];
+  const maxV=Math.max(...vals);
+  const chart=document.getElementById('monthChart');
+  if(chart){ meses.forEach((m,i)=>{ const col=document.createElement('div');col.className='mc-col';const pct=Math.round(vals[i]/maxV*100);const color=i===4?'#1D9E75':i===5?'#EF9F27':'#C8C5BC';col.innerHTML=`<span class="mc-val blur-num">${vals[i]}</span><div class="mc-bar" style="height:${pct}%;background:${color}"></div><span class="mc-lbl">${m}</span>`;chart.appendChild(col) }) }
 </script>
 </body>
 </html>
