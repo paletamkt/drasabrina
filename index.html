@@ -20,6 +20,7 @@
   --card:  #FFFFFF;
   --sage:  #6B7A5E;
   --rose:  #C4897A;
+  --purple:#7A6B8A;
   --sh: 0 2px 20px rgba(28,25,23,0.07);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -38,23 +39,23 @@ header h1 em{font-style:italic;color:var(--gold-l)}
 /* ── TABS ── */
 .tab-bar{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100;box-shadow:0 1px 12px rgba(28,25,23,.07)}
 .tab-bar-inner{max-width:960px;margin:0 auto;display:flex}
-.tab-btn{flex:1;padding:0;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:border-color .25s,background .2s;position:relative}
-.tab-btn-inner{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 20px;gap:4px}
+.tab-btn{flex:1;padding:0;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:border-color .25s;position:relative}
+.tab-btn-inner{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:15px 16px;gap:4px;transition:background .2s}
 .tab-btn:hover .tab-btn-inner{background:var(--warm)}
 .tab-btn.active{border-bottom-color:var(--gold)}
-.tab-icon{font-size:20px;transition:transform .25s}
-.tab-btn.active .tab-icon{transform:scale(1.12)}
-.tab-label{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-m);transition:color .2s}
+.tab-icon{font-size:18px;transition:transform .25s}
+.tab-btn.active .tab-icon{transform:scale(1.1)}
+.tab-label{font-family:'DM Sans',sans-serif;font-size:10.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-m);transition:color .2s;white-space:nowrap}
 .tab-btn.active .tab-label{color:var(--gold)}
-.tab-sub{font-size:11px;color:var(--ink-m);opacity:.65;font-style:italic}
+.tab-sub{font-size:10.5px;color:var(--ink-m);opacity:.6;font-style:italic;white-space:nowrap}
 .tab-btn.active .tab-sub{opacity:1;color:var(--gold-l)}
 
 /* ── PANELS ── */
 .panel{display:none}
 .panel.active{display:block;animation:fadeIn .35s ease}
+main{max-width:960px;margin:0 auto;padding:48px 24px 80px}
 
 /* ── SHARED ── */
-main{max-width:960px;margin:0 auto;padding:48px 24px 80px}
 .s-label{font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
 .s-title{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;color:var(--ink);margin-bottom:8px;line-height:1.2}
 .s-title em{font-style:italic;color:var(--gold)}
@@ -71,188 +72,73 @@ main{max-width:960px;margin:0 auto;padding:48px 24px 80px}
 .day-stories{display:flex;flex-direction:column;gap:5px}
 .day-story-item{font-size:11.5px;color:var(--ink-l);display:flex;align-items:flex-start;gap:7px;line-height:1.5}
 .day-story-item::before{content:'·';color:var(--gold);font-size:14px;flex-shrink:0;margin-top:-1px}
-
 .julia-band{background:var(--warm);border:1px solid var(--line);border-radius:8px;padding:14px 20px;display:flex;align-items:center;gap:12px}
 .julia-band p{font-size:13px;color:var(--ink-m);line-height:1.6}
 .julia-band strong{color:var(--ink)}
 
-/* ── WEEKEND ── */
+/* ── NOTICE ── */
 .notice{background:var(--ink);color:var(--cream);border-radius:12px;padding:24px 28px;display:flex;gap:16px;margin-bottom:32px}
 .notice p{font-size:13.5px;color:rgba(250,248,244,.78);line-height:1.8}
 .notice strong{color:var(--gold-l)}
+.notice-icon{font-size:18px;flex-shrink:0;margin-top:2px}
 
-/* day blocks */
+/* ── WEEKEND CARDS ── */
 .fds-block{margin-bottom:32px}
 .fds-block-header{display:flex;align-items:center;gap:16px;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--line)}
 .fds-day-badge{background:var(--ink);color:var(--gold-l);border-radius:8px;padding:10px 16px;text-align:center;flex-shrink:0}
 .fds-day-badge .bd-label{font-size:9px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(212,180,131,.55);display:block;margin-bottom:3px}
 .fds-day-badge .bd-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;line-height:1;display:block}
-.fds-block-meta{}
 .fds-block-meta h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--ink);margin-bottom:2px}
 .fds-block-meta p{font-size:13px;color:var(--ink-m);font-style:italic}
-
-/* cards grid */
 .fds-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .fds-card{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:var(--sh);display:flex;flex-direction:column}
 .fds-card-top{padding:14px 16px 12px;border-bottom:1px solid var(--line)}
 .fds-card-tag{font-size:9px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:5px}
-.fds-card-tag.time{color:var(--sage)}
-.fds-card-tag.photo{color:#7A6B8A}
-.fds-card-tag.copy{color:var(--rose)}
+.tag-time{color:var(--sage)}
+.tag-photo{color:var(--purple)}
+.tag-copy{color:var(--rose)}
 .fds-card-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--ink);line-height:1.25}
 .fds-card-body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:10px}
 .fds-item{font-size:13px;color:var(--ink-l);line-height:1.65;display:flex;gap:9px;align-items:flex-start}
 .fds-item .fi{flex-shrink:0;font-size:14px;margin-top:1px}
 .fds-copy{font-size:13px;font-style:italic;color:var(--ink-l);background:var(--warm);border-left:2px solid var(--gold);border-radius:0 5px 5px 0;padding:9px 12px;line-height:1.65}
-.fds-copy + .fds-copy{margin-top:6px}
-
+.fds-copy+.fds-copy{margin-top:6px}
 .fds-rule{margin-top:16px;padding:13px 16px;background:#FDF4F2;border:1px solid #E8CFC9;border-radius:8px;font-size:13px;color:#7A4A40;line-height:1.7;display:flex;gap:10px;align-items:flex-start}
-.fds-rule span:first-child{flex-shrink:0}
-
 .fds-divider{border:none;border-top:1px solid var(--line);margin:36px 0}
+
+/* ── FOTO ABA ── */
+.alert-band{background:#FFF8EC;border:1px solid #E8D5A3;border-radius:10px;padding:18px 22px;display:flex;gap:14px;align-items:flex-start;margin-bottom:36px}
+.alert-band p{font-size:13.5px;color:#7A6020;line-height:1.75}
+.alert-band strong{color:#5A4510}
+
+.foto-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:32px}
+.foto-card{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:var(--sh)}
+.foto-card-header{padding:16px 20px 14px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px}
+.foto-card-icon{font-size:22px;flex-shrink:0}
+.foto-card-header h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--ink);line-height:1.2}
+.foto-card-header p{font-size:12px;color:var(--ink-m);font-style:italic;margin-top:2px}
+.foto-card-body{padding:16px 20px}
+.foto-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.foto-list li{font-size:13.5px;color:var(--ink-l);line-height:1.65;display:flex;gap:10px;align-items:flex-start}
+.foto-list li .bi{flex-shrink:0;font-size:14px;margin-top:2px}
+.foto-list li strong{color:var(--ink);display:block;margin-bottom:1px}
+
+.foto-tip-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:32px}
+.foto-tip{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 18px;box-shadow:var(--sh)}
+.foto-tip-icon{font-size:20px;margin-bottom:8px}
+.foto-tip h4{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:6px}
+.foto-tip p{font-size:13px;color:var(--ink-m);line-height:1.7}
+.foto-tip em{color:var(--ink-l);font-style:normal;font-weight:500}
+
+.foto-dont{background:var(--ink);border-radius:10px;padding:22px 26px}
+.foto-dont h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:var(--gold-l);margin-bottom:16px}
+.dont-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.dont-item{display:flex;gap:10px;font-size:13px;color:rgba(250,248,244,.72);line-height:1.65;align-items:flex-start}
+.dont-item .di{flex-shrink:0;font-size:14px;margin-top:1px}
 
 /* ── ANIMATIONS ── */
 @keyframes up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-
-/* ── SPLASH ── */
-#splash{
-  position:fixed;inset:0;background:#0E0D0B;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  z-index:9999;overflow:hidden;
-  transition:opacity 1s ease,visibility 1s ease;
-}
-#splash.hide{opacity:0;visibility:hidden;pointer-events:none}
-
-/* orbs dourados */
-.sp-orb{position:absolute;border-radius:50%;filter:blur(90px);animation:spOrbFloat 7s ease-in-out infinite alternate}
-.sp-orb-1{width:480px;height:480px;background:radial-gradient(circle,rgba(181,146,76,.18) 0%,transparent 70%);top:-140px;left:-140px;animation-delay:0s}
-.sp-orb-2{width:360px;height:360px;background:radial-gradient(circle,rgba(196,137,122,.12) 0%,transparent 70%);bottom:-100px;right:-100px;animation-delay:1.8s}
-.sp-orb-3{width:260px;height:260px;background:radial-gradient(circle,rgba(107,122,94,.10) 0%,transparent 70%);top:50%;left:60%;animation-delay:1s}
-@keyframes spOrbFloat{from{transform:scale(1) translate(0,0)}to{transform:scale(1.2) translate(18px,-18px)}}
-
-/* grade de pontos */
-.sp-dots{position:absolute;inset:0;background-image:radial-gradient(rgba(181,146,76,.06) 1px,transparent 1px);background-size:36px 36px;animation:spDotFade 2s ease forwards}
-@keyframes spDotFade{from{opacity:0}to{opacity:1}}
-
-/* anéis */
-.sp-ring{position:absolute;border-radius:50%;border:1px solid rgba(181,146,76,.07)}
-.sp-ring-1{width:440px;height:440px;animation:spRingRot 28s linear infinite}
-.sp-ring-2{width:640px;height:640px;border-style:dashed;border-color:rgba(181,146,76,.04);animation:spRingRot 45s linear infinite reverse}
-.sp-ring-3{width:280px;height:280px;border-color:rgba(196,137,122,.07);animation:spRingRot 18s linear infinite}
-@keyframes spRingRot{to{transform:rotate(360deg)}}
-
-/* ícones orbitais */
-.sp-orbit{
-  position:absolute;
-  width:44px;height:44px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:20px;
-  transform-origin:220px 220px;
-  animation:spOrbitSpin 28s linear infinite;
-}
-.sp-orbit-1{background:rgba(181,146,76,.15);border:1px solid rgba(181,146,76,.25);animation-delay:0s}
-.sp-orbit-2{background:rgba(196,137,122,.15);border:1px solid rgba(196,137,122,.25);animation-delay:-7s}
-.sp-orbit-3{background:rgba(107,122,94,.15);border:1px solid rgba(107,122,94,.25);animation-delay:-14s}
-.sp-orbit-4{background:rgba(181,146,76,.1);border:1px solid rgba(181,146,76,.2);animation-delay:-21s}
-@keyframes spOrbitSpin{to{transform:rotate(360deg) translateX(220px) rotate(-360deg)}}
-
-/* ícones flutuantes */
-.sp-fi{position:absolute;animation:spFiDrift linear infinite}
-@keyframes spFiDrift{0%{opacity:0;transform:translateY(0) rotate(0deg) scale(.7)}10%{opacity:1}90%{opacity:.5}100%{opacity:0;transform:translateY(-180px) rotate(20deg) scale(.5)}}
-
-/* centro */
-.sp-center{position:relative;z-index:2;text-align:center;max-width:420px}
-.sp-eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(181,146,76,.1);border:1px solid rgba(181,146,76,.2);
-  border-radius:30px;padding:7px 20px;margin-bottom:24px;
-  opacity:0;transform:translateY(10px);animation:spUp .7s ease .2s forwards;
-}
-.sp-eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--gold-l);animation:spDotPulse 2s ease-in-out infinite}
-@keyframes spDotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
-.sp-eyebrow span{font-size:10px;color:rgba(212,180,131,.6);letter-spacing:.16em;text-transform:uppercase}
-
-.sp-title{
-  font-family:'Cormorant Garamond',serif;
-  font-weight:300;font-size:clamp(2.2rem,6vw,3.6rem);
-  color:#FAF8F4;line-height:1.1;
-  opacity:0;transform:translateY(14px);animation:spUp .8s ease .4s forwards;
-}
-.sp-title em{font-style:italic;color:var(--gold-l)}
-
-.sp-line{
-  width:40px;height:1px;background:var(--gold);
-  margin:20px auto 18px;
-  opacity:0;transform:scaleX(0);transform-origin:center;
-  animation:spLineGrow .7s ease .7s forwards;
-}
-@keyframes spLineGrow{to{opacity:1;transform:scaleX(1)}}
-
-.sp-sub{
-  font-size:11px;color:rgba(250,248,244,.25);letter-spacing:.16em;text-transform:uppercase;
-  opacity:0;animation:spUp .6s ease .85s forwards;
-}
-
-/* ícones especialidade */
-.sp-specs{display:flex;gap:18px;justify-content:center;margin-top:30px;opacity:0;animation:spUp .6s ease 1.05s forwards}
-.sp-spec{display:flex;flex-direction:column;align-items:center;gap:7px}
-.sp-spec-ico{
-  width:48px;height:48px;border-radius:12px;
-  display:flex;align-items:center;justify-content:center;font-size:22px;
-  border:1px solid rgba(181,146,76,.15);
-  animation:spSpecPulse 3.5s ease-in-out infinite;
-}
-.ssi-1{background:rgba(181,146,76,.1);animation-delay:0s}
-.ssi-2{background:rgba(196,137,122,.1);animation-delay:.6s}
-.ssi-3{background:rgba(107,122,94,.1);animation-delay:1.2s}
-.ssi-4{background:rgba(181,146,76,.08);animation-delay:1.8s}
-@keyframes spSpecPulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 transparent}50%{transform:scale(1.07);box-shadow:0 0 16px rgba(181,146,76,.12)}}
-.sp-spec-lbl{font-size:9px;color:rgba(250,248,244,.18);letter-spacing:.1em;text-transform:uppercase}
-
-/* loader */
-.sp-loader{width:260px;margin-top:38px;opacity:0;animation:spUp .5s ease 1.3s forwards}
-.sp-loader-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.sp-loader-lbl{font-size:10px;color:rgba(181,146,76,.4);letter-spacing:.1em;text-transform:uppercase}
-.sp-loader-pct{font-size:11px;color:var(--gold-l);font-weight:500}
-.sp-loader-track{height:1px;background:rgba(181,146,76,.12);border-radius:2px;overflow:hidden}
-.sp-loader-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--gold),var(--gold-l));border-radius:2px;animation:spLoadGrow 3.5s cubic-bezier(.4,0,.15,1) 1.5s forwards}
-@keyframes spLoadGrow{0%{width:0%}25%{width:28%}55%{width:60%}80%{width:82%}100%{width:100%}}
-
-@keyframes spUp{to{opacity:1;transform:translateY(0)}}
-
-/* ── ANIMAÇÕES DE PÁGINA ── */
-/* scroll reveal */
-.reveal{
-  opacity:0;
-  transform:translateY(16px);
-  transition:opacity .55s ease,transform .55s ease;
-}
-.reveal.visible{opacity:1;transform:translateY(0)}
-
-/* hover nos day-cards */
-.day-card{transition:box-shadow .25s,transform .25s,border-color .25s}
-.day-card:hover{border-color:rgba(181,146,76,.35)}
-.day-card::after{
-  content:'';position:absolute;inset:0;border-radius:10px;
-  background:radial-gradient(ellipse at 50% 0%,rgba(181,146,76,.05) 0%,transparent 70%);
-  opacity:0;transition:opacity .3s;
-}
-.day-card:hover::after{opacity:1}
-
-/* ícone das tabs */
-.tab-icon{display:inline-block;transition:transform .3s ease}
-.tab-btn:hover .tab-icon{transform:scale(1.2) rotate(-5deg)}
-.tab-btn.active .tab-icon{animation:tabIconBob 2.5s ease-in-out infinite}
-@keyframes tabIconBob{0%,100%{transform:scale(1.12) translateY(0)}50%{transform:scale(1.12) translateY(-3px)}}
-
-/* fds cards */
-.fds-card{transition:box-shadow .25s,transform .25s}
-.fds-card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(28,25,23,.14)}
-
-/* header linha decorativa animada */
-.h-div{animation:hLineGrow .7s .28s ease forwards;transform-origin:center;transform:scaleX(0);opacity:0}
-@keyframes hLineGrow{to{opacity:1;transform:scaleX(1)}}
 
 /* ── FOOTER ── */
 footer{text-align:center;padding:28px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-m);letter-spacing:.03em}
@@ -262,86 +148,22 @@ footer em{color:var(--gold);font-style:italic}
 @media(max-width:760px){
   .week-grid{grid-template-columns:1fr 1fr}
   .fds-cards{grid-template-columns:1fr}
+  .foto-grid{grid-template-columns:1fr}
+  .foto-tip-row{grid-template-columns:1fr}
+  .dont-grid{grid-template-columns:1fr}
   header{padding:40px 20px 32px}
   main{padding:32px 16px 60px}
-}
-@media(max-width:420px){
-  .week-grid{grid-template-columns:1fr}
   .tab-sub{display:none}
+}
+@media(max-width:480px){
+  .week-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
-<div id="splash">
-  <div class="sp-orb sp-orb-1"></div>
-  <div class="sp-orb sp-orb-2"></div>
-  <div class="sp-orb sp-orb-3"></div>
-  <div class="sp-dots"></div>
-  <div class="sp-ring sp-ring-1"></div>
-  <div class="sp-ring sp-ring-2"></div>
-  <div class="sp-ring sp-ring-3"></div>
-
-  <!-- ícones orbitais -->
-  <div class="sp-orbit sp-orbit-1" style="transform:rotate(0deg) translateX(220px) rotate(0deg)">🌿</div>
-  <div class="sp-orbit sp-orbit-2" style="transform:rotate(90deg) translateX(220px) rotate(-90deg)">🩺</div>
-  <div class="sp-orbit sp-orbit-3" style="transform:rotate(180deg) translateX(220px) rotate(-180deg)">✨</div>
-  <div class="sp-orbit sp-orbit-4" style="transform:rotate(270deg) translateX(220px) rotate(-270deg)">📋</div>
-
-  <!-- ícones flutuantes livres -->
-  <span class="sp-fi" style="left:8%;top:82%;font-size:24px;animation-duration:7s;animation-delay:0s;color:rgba(181,146,76,.18)">💊</span>
-  <span class="sp-fi" style="left:15%;top:70%;font-size:18px;animation-duration:9s;animation-delay:1s;color:rgba(181,146,76,.12)">🌱</span>
-  <span class="sp-fi" style="left:78%;top:76%;font-size:22px;animation-duration:8s;animation-delay:.5s;color:rgba(196,137,122,.18)">⚗️</span>
-  <span class="sp-fi" style="left:82%;top:60%;font-size:18px;animation-duration:6.5s;animation-delay:2s;color:rgba(181,146,76,.14)">📊</span>
-  <span class="sp-fi" style="left:88%;top:82%;font-size:16px;animation-duration:7.5s;animation-delay:1.5s;color:rgba(255,255,255,.05)">🔬</span>
-  <span class="sp-fi" style="left:5%;top:48%;font-size:20px;animation-duration:6s;animation-delay:.8s;color:rgba(107,122,94,.2)">🫀</span>
-  <span class="sp-fi" style="left:55%;top:88%;font-size:16px;animation-duration:10s;animation-delay:.3s;color:rgba(181,146,76,.1)">📱</span>
-  <span class="sp-fi" style="left:38%;top:90%;font-size:18px;animation-duration:8.5s;animation-delay:1.2s;color:rgba(196,137,122,.14)">💉</span>
-  <span class="sp-fi" style="left:92%;top:42%;font-size:22px;animation-duration:11s;animation-delay:2.5s;color:rgba(181,146,76,.1)">🧬</span>
-
-  <div class="sp-center">
-    <div class="sp-eyebrow">
-      <div class="sp-eyebrow-dot"></div>
-      <span>Paleta Mkt · Estratégia de Marketing</span>
-    </div>
-
-    <p class="sp-title">Stories <em>Diários</em><br>Dra. Sabrina</p>
-    <div class="sp-line"></div>
-    <p class="sp-sub">Nutrologia & Medicina Integrativa · Manaus/AM</p>
-
-    <div class="sp-specs">
-      <div class="sp-spec">
-        <div class="sp-spec-ico ssi-1">🌿</div>
-        <span class="sp-spec-lbl">Nutrologia</span>
-      </div>
-      <div class="sp-spec">
-        <div class="sp-spec-ico ssi-2">🩺</div>
-        <span class="sp-spec-lbl">Medicina</span>
-      </div>
-      <div class="sp-spec">
-        <div class="sp-spec-ico ssi-3">✨</div>
-        <span class="sp-spec-lbl">Integrativa</span>
-      </div>
-      <div class="sp-spec">
-        <div class="sp-spec-ico ssi-4">📋</div>
-        <span class="sp-spec-lbl">Estratégia</span>
-      </div>
-    </div>
-
-    <div class="sp-loader">
-      <div class="sp-loader-top">
-        <span class="sp-loader-lbl">Carregando estratégia</span>
-        <span class="sp-loader-pct" id="spPct">0%</span>
-      </div>
-      <div class="sp-loader-track">
-        <div class="sp-loader-fill"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <header>
-  <p class="eyebrow">Paleta Mkt · Estratégia de Marketing</p>
+  <p class="eyebrow">Paleta Mkt · Estratégia de Conteúdo</p>
   <h1>Stories <em>Diários</em><br>Dra. Sabrina Carvalho</h1>
   <div class="h-div"></div>
   <p class="h-sub">@dra.sabrinacarvalhoo · Nutrologia & Medicina Integrativa · Manaus/AM</p>
@@ -366,6 +188,14 @@ footer em{color:var(--gold);font-style:italic}
       </div>
     </button>
 
+    <button class="tab-btn" onclick="showTab('fotos',this)">
+      <div class="tab-btn-inner">
+        <span class="tab-icon">📸</span>
+        <span class="tab-label">Guia de Fotos</span>
+        <span class="tab-sub">Como & o que fotografar</span>
+      </div>
+    </button>
+
   </div>
 </div>
 
@@ -373,13 +203,11 @@ footer em{color:var(--gold);font-style:italic}
 
   <!-- ══════════ VISÃO GERAL ══════════ -->
   <div class="panel active" id="panel-semana">
-
     <p class="s-label">Visão geral</p>
     <h2 class="s-title">O que acontece <em>durante a semana</em></h2>
     <p class="s-desc">Segunda a sexta, a Júlia cuida de tudo — produção, legendas, publicação e monitoramento. Aqui está o panorama do que está sendo publicado a cada dia.</p>
 
     <div class="week-grid">
-
       <div class="day-card">
         <p class="day-name">Segunda</p>
         <p class="day-theme">Agenda & Expectativa</p>
@@ -390,7 +218,6 @@ footer em{color:var(--gold);font-style:italic}
           <span class="day-story-item">CTA para agendamento</span>
         </div>
       </div>
-
       <div class="day-card">
         <p class="day-name">Terça</p>
         <p class="day-theme">Bastidores & Segurança</p>
@@ -401,7 +228,6 @@ footer em{color:var(--gold);font-style:italic}
           <span class="day-story-item">Enquete ou caixa de perguntas</span>
         </div>
       </div>
-
       <div class="day-card">
         <p class="day-name">Quarta</p>
         <p class="day-theme">Conhecimento Técnico</p>
@@ -412,7 +238,6 @@ footer em{color:var(--gold);font-style:italic}
           <span class="day-story-item">Direcionamento para post do feed</span>
         </div>
       </div>
-
       <div class="day-card">
         <p class="day-name">Quinta</p>
         <p class="day-theme">Conexão & Ambiente</p>
@@ -423,36 +248,32 @@ footer em{color:var(--gold);font-style:italic}
           <span class="day-story-item">Humanização com caixa de perguntas</span>
         </div>
       </div>
-
       <div class="day-card">
         <p class="day-name">Sexta</p>
         <p class="day-theme">Escolhas Conscientes</p>
-        <p class="day-focus">Encerrar a semana com equilíbrio e prevenção para o fim de semana.</p>
+        <p class="day-focus">Encerrar a semana com equilíbrio e prevenção.</p>
         <div class="day-stories">
           <span class="day-story-item">Lifestyle leve — café, look casual</span>
           <span class="day-story-item">Prevenção: "exceção não vira regra"</span>
           <span class="day-story-item">Fechamento positivo e leve</span>
         </div>
       </div>
-
     </div>
 
     <div class="julia-band">
       <span style="font-size:18px;flex-shrink:0">✅</span>
-      <p><strong>Tudo acima é responsabilidade da Paleta Mkt.</strong> Vamos precisar que nos envie fotos da sua rotina para que possam ser considerados - importaante salientar que nem todo o material enviado será usado.</p>
+      <p><strong>Tudo acima é responsabilidade da Júlia.</strong> Sua única tarefa durante a semana é enviar fotos do acervo quando solicitado — o restante ela resolve.</p>
     </div>
-
   </div>
 
   <!-- ══════════ FIM DE SEMANA ══════════ -->
   <div class="panel" id="panel-fds">
-
     <p class="s-label">Fim de semana</p>
     <h2 class="s-title">Orientações <em>para você postar</em></h2>
-    <p class="s-desc">Nada de roteiro fixo — o fim de semana tem plantão, eventos e descanso. As orientações abaixo são práticas: horário, foto e copy sugerida para cada situação.</p>
+    <p class="s-desc">Nada de roteiro fixo — o fim de semana tem plantão, eventos e descanso. As orientações abaixo são práticas: horário ideal, foto sugerida e copy pronta para cada situação real.</p>
 
     <div class="notice">
-      <span style="font-size:18px;flex-shrink:0;margin-top:2px">💡</span>
+      <span class="notice-icon">💡</span>
       <p><strong>Regra de ouro:</strong> se a foto transmite leveza e você está de plantão — <strong>não poste</strong>. Um story autêntico performa melhor do que um conteúdo que não condiz com a sua realidade. Autenticidade é o maior ativo de uma marca médica pessoal.</p>
     </div>
 
@@ -468,12 +289,10 @@ footer em{color:var(--gold);font-style:italic}
           <p>Resultados reais e aquecimento para a semana seguinte</p>
         </div>
       </div>
-
       <div class="fds-cards">
-
         <div class="fds-card">
           <div class="fds-card-top">
-            <p class="fds-card-tag time">🕐 Horário ideal</p>
+            <p class="fds-card-tag tag-time">🕐 Horário ideal</p>
             <p class="fds-card-title">Quando postar</p>
           </div>
           <div class="fds-card-body">
@@ -482,34 +301,30 @@ footer em{color:var(--gold);font-style:italic}
             <div class="fds-item"><span class="fi">❌</span><span>Evite depois das 20h — sábado à noite tem baixa taxa de visualização para saúde.</span></div>
           </div>
         </div>
-
         <div class="fds-card">
           <div class="fds-card-top">
-            <p class="fds-card-tag photo">📸 Foto sugerida</p>
+            <p class="fds-card-tag tag-photo">📸 Foto sugerida</p>
             <p class="fds-card-title">O que fotografar</p>
           </div>
           <div class="fds-card-body">
-            <div class="fds-item"><span class="fi">🏥</span><span>Se estiver na clínica: foto encerrando atendimentos — jaleco, mesa, estetoscópio.</span></div>
+            <div class="fds-item"><span class="fi">🏥</span><span>Se estiver na clínica: jaleco, mesa, estetoscópio — foto encerrando atendimentos.</span></div>
             <div class="fds-item"><span class="fi">💬</span><span>Print de feedback de paciente no WhatsApp com nome borrado.</span></div>
-            <div class="fds-item"><span class="fi">📅</span><span>Qualquer foto + informação de vagas disponíveis para a semana.</span></div>
-            <div class="fds-item"><span class="fi">☕</span><span>Se estiver de folga: foto de café, livro ou ambiente tranquilo — desde que seja real.</span></div>
+            <div class="fds-item"><span class="fi">📅</span><span>Qualquer foto sua + informação de vagas disponíveis para a semana.</span></div>
+            <div class="fds-item"><span class="fi">☕</span><span>Se estiver de folga: café, ambiente tranquilo — desde que seja real e seu.</span></div>
           </div>
         </div>
-
         <div class="fds-card">
           <div class="fds-card-top">
-            <p class="fds-card-tag copy">✍️ Copys prontas</p>
+            <p class="fds-card-tag tag-copy">✍️ Copys prontas</p>
             <p class="fds-card-title">Legendas para usar</p>
           </div>
           <div class="fds-card-body">
             <div class="fds-copy">"Encerrando a semana com o coração grato pelos resultados. Ver cada paciente evoluindo é o meu maior presente. 📈"</div>
             <div class="fds-copy">"Agenda de [Mês] quase cheia. Restam apenas X horários para novos pacientes — link na bio."</div>
-            <div class="fds-copy">"É por isso que faço o que faço. Menos peso, mais vida — e ela compartilhou isso comigo. 🥹"</div>
+            <div class="fds-copy">"É por isso que faço o que faço. Menos peso, mais vida. 🥹"</div>
           </div>
         </div>
-
       </div>
-
       <div class="fds-rule">
         <span>⚠️</span>
         <span>Não force os 3 stories se o dia estiver corrido. Um story real e autêntico vale mais do que três desconexos.</span>
@@ -530,52 +345,185 @@ footer em{color:var(--gold);font-style:italic}
           <p>Recarregar energia e preparar o seguidor para a semana</p>
         </div>
       </div>
-
       <div class="fds-cards">
-
         <div class="fds-card">
           <div class="fds-card-top">
-            <p class="fds-card-tag time">🕐 Horário ideal</p>
+            <p class="fds-card-tag tag-time">🕐 Horário ideal</p>
             <p class="fds-card-title">Quando postar</p>
           </div>
           <div class="fds-card-body">
             <div class="fds-item"><span class="fi">⭐</span><span><strong>10h – 12h</strong> — melhor janela. Domingo de manhã tem alto engajamento em saúde e bem-estar.</span></div>
-            <div class="fds-item"><span class="fi">✅</span><span><strong>19h – 21h</strong> — excelente para conteúdo reflexivo e motivacional de preparação de semana.</span></div>
-            <div class="fds-item"><span class="fi">❌</span><span>Evite de 13h às 17h — horário de menor atividade no Instagram aos domingos.</span></div>
+            <div class="fds-item"><span class="fi">✅</span><span><strong>19h – 21h</strong> — excelente para conteúdo reflexivo e motivacional.</span></div>
+            <div class="fds-item"><span class="fi">❌</span><span>Evite de 13h às 17h — menor atividade no Instagram aos domingos.</span></div>
           </div>
         </div>
-
         <div class="fds-card">
           <div class="fds-card-top">
-            <p class="fds-card-tag photo">📸 Foto sugerida</p>
+            <p class="fds-card-tag tag-photo">📸 Foto sugerida</p>
             <p class="fds-card-title">O que fotografar</p>
           </div>
           <div class="fds-card-body">
             <div class="fds-item"><span class="fi">🌿</span><span>Natureza, paisagem ou detalhe do ambiente onde você está — parque, janela, varanda.</span></div>
             <div class="fds-item"><span class="fi">📖</span><span>Livro, vela ou café — clima de aconchego e descanso real.</span></div>
-            <div class="fds-item"><span class="fi">🩺</span><span>Se estiver de plantão: foto do jaleco ou corredor do hospital — honestidade gera conexão.</span></div>
-            <div class="fds-item"><span class="fi">🖼</span><span>Banco de imagem (Pexels/Unsplash): "wellness sunday", "morning calm", "minimalist lifestyle".</span></div>
+            <div class="fds-item"><span class="fi">🩺</span><span>Se estiver de plantão: foto do jaleco ou corredor — honestidade gera conexão.</span></div>
           </div>
         </div>
-
         <div class="fds-card">
           <div class="fds-card-top">
-            <p class="fds-card-tag copy">✍️ Copys prontas</p>
+            <p class="fds-card-tag tag-copy">✍️ Copys prontas</p>
             <p class="fds-card-title">Legendas para usar</p>
           </div>
           <div class="fds-card-body">
             <div class="fds-copy">"Recarregando para uma nova semana de curas. Saúde também é silenciar a mente e descansar o corpo. 🌿"</div>
-            <div class="fds-copy">"Amanhã recomeçamos. Que tal decidir hoje que essa será a semana da sua mudança definitiva?"</div>
+            <div class="fds-copy">"Amanhã recomeçamos. Que tal decidir hoje que essa será a semana da sua mudança?"</div>
             <div class="fds-copy">"Plantão hoje — porque a saúde não descansa. Mas amanhã a gente se vê no consultório. 🩺"</div>
-            <div class="fds-copy">"Domingo é dia de preparar o terreno para não falhar comigo mesma. Por aqui, foco total."</div>
           </div>
         </div>
-
       </div>
-
       <div class="fds-rule">
         <span>⚠️</span>
-        <span>Evite qualquer post que pareça forçado. Se o domingo estiver agitado, a copy do plantão funciona perfeitamente — e gera muito mais identificação do que uma foto de descanso que não é real.</span>
+        <span>Evite qualquer post que pareça forçado. Se o domingo estiver agitado, a copy do plantão funciona perfeitamente — e gera muito mais identificação.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ GUIA DE FOTOS ══════════ -->
+  <div class="panel" id="panel-fotos">
+    <p class="s-label">Guia de fotos</p>
+    <h2 class="s-title">Como & o que <em>fotografar</em></h2>
+    <p class="s-desc">Seu acervo é a matéria-prima de tudo. Quanto mais variado e autêntico, melhor o conteúdo que conseguimos montar. Este guia foi feito para facilitar — você não precisa ser fotógrafa, só precisa saber o que capturar.</p>
+
+    <div class="alert-band">
+      <span style="font-size:18px;flex-shrink:0;margin-top:2px">⚠️</span>
+      <p><strong>Por que isso importa agora:</strong> o acervo atual tem muitas fotos do mesmo dia e do mesmo ângulo. Fotos de banco de imagem não têm o seu estilo — e o seguidor percebe. Precisamos de momentos reais seus: bastidores, rotina, detalhes da clínica. Quanto mais você enviar, mais humanizado o perfil fica.</p>
+    </div>
+
+    <!-- CATEGORIAS -->
+    <div class="foto-grid">
+
+      <div class="foto-card">
+        <div class="foto-card-header">
+          <span class="foto-card-icon">🩺</span>
+          <div>
+            <h3>Bastidores da Clínica</h3>
+            <p>O dia a dia que o seguidor quer ver</p>
+          </div>
+        </div>
+        <div class="foto-card-body">
+          <ul class="foto-list">
+            <li><span class="bi">📋</span><div><strong>Prontuário ou tablet na mão</strong> — você analisando exames ou protocolos. Não precisa aparecer o conteúdo, só a ação.</div></li>
+            <li><span class="bi">🔬</span><div><strong>Equipamentos em uso</strong> — balança de bioimpedância, aparelhos, insumos. Detalhe das mãos funciona muito bem.</div></li>
+            <li><span class="bi">💊</span><div><strong>Suplementos e frascos</strong> — dispostos na mesa ou sendo manipulados. Foto close, fundo neutro.</div></li>
+            <li><span class="bi">📚</span><div><strong>Você estudando</strong> — livro aberto, tela com artigo científico, caderno. Mostra atualização constante.</div></li>
+            <li><span class="bi">🤝</span><div><strong>Com a equipe</strong> — foto natural, não posada. Momentos entre atendimentos funcionam melhor que poses formais.</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="foto-card">
+        <div class="foto-card-header">
+          <span class="foto-card-icon">🏥</span>
+          <div>
+            <h3>Espaço & Ambiente</h3>
+            <p>A clínica como personagem do conteúdo</p>
+          </div>
+        </div>
+        <div class="foto-card-body">
+          <ul class="foto-list">
+            <li><span class="bi">🚪</span><div><strong>Fachada e recepção</strong> — foto da entrada ou sala de espera, de preferência com boa luz natural.</div></li>
+            <li><span class="bi">🪴</span><div><strong>Detalhes decorativos</strong> — planta, quadro, poltrona, detalhe de cor. Criam desejo de estar naquele espaço.</div></li>
+            <li><span class="bi">🪟</span><div><strong>Janela ou luz natural</strong> — qualquer detalhe com iluminação bonita funciona como fundo de story.</div></li>
+            <li><span class="bi">🖥</span><div><strong>Mesa de trabalho</strong> — computador, caneta, bloco. Transmite organização e seriedade.</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="foto-card">
+        <div class="foto-card-header">
+          <span class="foto-card-icon">☀️</span>
+          <div>
+            <h3>Rotina & Estilo de Vida</h3>
+            <p>A humanização que gera conexão real</p>
+          </div>
+        </div>
+        <div class="foto-card-body">
+          <ul class="foto-list">
+            <li><span class="bi">☕</span><div><strong>Café ou chá da manhã</strong> — foto rápida antes de sair. Tons claros e naturais funcionam melhor.</div></li>
+            <li><span class="bi">🏃</span><div><strong>Exercício ou movimento</strong> — tênis, roupa de academia, parque. Não precisa ser treino elaborado.</div></li>
+            <li><span class="bi">🥗</span><div><strong>Refeição saudável real</strong> — o que você come de verdade, não foto de cardápio.</div></li>
+            <li><span class="bi">📖</span><div><strong>Momento de leitura ou descanso</strong> — livro, vela, domingo em casa. Esses são os que mais geram identificação no fim de semana.</div></li>
+            <li><span class="bi">😊</span><div><strong>Foto espontânea sua</strong> — sorrindo, andando, no carro. Quebra a formalidade e aproxima o seguidor.</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="foto-card">
+        <div class="foto-card-header">
+          <span class="foto-card-icon">🌙</span>
+          <div>
+            <h3>Plantão & Momentos Atípicos</h3>
+            <p>Autenticidade que nenhum banco de imagem entrega</p>
+          </div>
+        </div>
+        <div class="foto-card-body">
+          <ul class="foto-list">
+            <li><span class="bi">🩺</span><div><strong>Jaleco no plantão</strong> — foto simples, corredor ou sala. Esse tipo de imagem gera muita identificação e confiança.</div></li>
+            <li><span class="bi">🌅</span><div><strong>Amanhecer ou entardecer do hospital</strong> — janela, céu, detalhe de luz. Funciona muito bem como fundo de texto.</div></li>
+            <li><span class="bi">😮‍💨</span><div><strong>Expressão humana real</strong> — cansaço honesto, alívio após atendimento difícil. Esse tipo de vulnerabilidade controlada conecta muito.</div></li>
+            <li><span class="bi">📱</span><div><strong>Bastidor de estudo no plantão</strong> — artigo aberto no celular, anotação rápida. Reforça o posicionamento de atualização constante.</div></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- DICAS TÉCNICAS -->
+    <p class="s-label" style="margin-top:8px">Dicas rápidas</p>
+    <h2 class="s-title" style="margin-bottom:20px">Como <em>fotografar</em> melhor</h2>
+
+    <div class="foto-tip-row">
+      <div class="foto-tip">
+        <div class="foto-tip-icon">💡</div>
+        <h4>Luz natural sempre</h4>
+        <p>Posicione-se de frente para uma janela. Luz lateral cria sombra elegante. Evite flash e luz de teto — amarelam e envelhecem a foto.</p>
+      </div>
+      <div class="foto-tip">
+        <div class="foto-tip-icon">📐</div>
+        <h4>Menos é mais</h4>
+        <p>Fundo limpo e neutro. Uma foto de detalhe (mão, objeto, detalhe do jaleco) funciona melhor do que uma foto cheia de elementos.</p>
+      </div>
+      <div class="foto-tip">
+        <div class="foto-tip-icon">📦</div>
+        <h4>Envie em lotes</h4>
+        <p>Quando for fotografar, tire <em>10 a 15 fotos de uma vez</em> — variando ângulo e enquadramento. Isso alimenta o acervo por semanas.</p>
+      </div>
+      <div class="foto-tip">
+        <div class="foto-tip-icon">🎯</div>
+        <h4>Varie as categorias</h4>
+        <p>Tente cobrir pelo menos uma foto de cada pasta: <em>Clínica, Estudo, Pessoal, Plantão</em>. Isso evita o acervo repetitivo.</p>
+      </div>
+      <div class="foto-tip">
+        <div class="foto-tip-icon">📲</div>
+        <h4>Câmera do iPhone já basta</h4>
+        <p>Não precisa de câmera profissional. Foto no modo retrato com boa luz natural é suficiente para stories de alta qualidade.</p>
+      </div>
+      <div class="foto-tip">
+        <div class="foto-tip-icon">📁</div>
+        <h4>Onde enviar</h4>
+        <p>Mande direto no WhatsApp da Júlia ou no grupo da Paleta. Quanto antes chegar, mais rápido entra no calendário de conteúdo.</p>
+      </div>
+    </div>
+
+    <!-- O QUE EVITAR -->
+    <div class="foto-dont">
+      <h3>O que evitar nas fotos</h3>
+      <div class="dont-grid">
+        <div class="dont-item"><span class="di">❌</span><span>Fotos muito posadas e formais — parecem foto de currículo, não de marca pessoal.</span></div>
+        <div class="dont-item"><span class="di">❌</span><span>Fundo bagunçado ou com objetos aleatórios aparecendo.</span></div>
+        <div class="dont-item"><span class="di">❌</span><span>Filtros excessivos — alteram cor de pele e destoam do padrão visual do perfil.</span></div>
+        <div class="dont-item"><span class="di">❌</span><span>Fotos com informações de pacientes visíveis — prontuários, telas, nomes.</span></div>
+        <div class="dont-item"><span class="di">❌</span><span>Várias fotos do mesmo dia e mesmo ângulo — variação é essencial.</span></div>
+        <div class="dont-item"><span class="di">❌</span><span>Selfie com flash frontal — luz dura e desfavorável para qualquer tom de pele.</span></div>
       </div>
     </div>
 
@@ -588,47 +536,13 @@ footer em{color:var(--gold);font-style:italic}
 </footer>
 
 <script>
-// Splash — contador %
-const spPct = document.getElementById('spPct');
-let pct = 0;
-const pctInt = setInterval(()=>{
-  if(pct < 100){ pct += Math.random() > .65 ? 2 : 1; if(pct>100)pct=100; spPct.textContent=pct+'%'; }
-  else clearInterval(pctInt);
-}, 40);
-
-window.addEventListener('load',()=>{
-  setTimeout(()=>{
-    pct=100; spPct.textContent='100%';
-    setTimeout(()=>document.getElementById('splash').classList.add('hide'), 350);
-  }, 4000);
-});
-
-// Tabs
 function showTab(id, btn) {
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('panel-' + id).classList.add('active');
   btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
 }
-
-// Scroll reveal
-const revealObserver = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-},{threshold:.1});
-
-function setupReveal(){
-  document.querySelectorAll('.day-card,.fds-card,.notice,.julia-band,.fds-block,.fds-rule').forEach((el,i)=>{
-    el.classList.add('reveal');
-    el.style.transitionDelay = (i % 5) * 0.07 + 's';
-    revealObserver.observe(el);
-  });
-}
-document.addEventListener('DOMContentLoaded', setupReveal);
 </script>
 </body>
 </html>
